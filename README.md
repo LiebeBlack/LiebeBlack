@@ -284,12 +284,3 @@ Uso **Flutter/Dart** para interfaces declarativas de alto rendimiento, y migro p
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:00b4d8,100:0d1117&height=120&section=footer&stroke=00e5ff&strokeWidth=1" width="100%"/>
 
 <br/>
-
-```
-╔════════════════════════════════════════════════════════════════╗
-║  SYSTEM_MODE: STABLE  ·  ARCH: CLEAN  ·  STATUS: OPERATIONAL ║
-║  "Cada línea de código es una decisión de diseño."    [ 🐺 ]  ║
-╚════════════════════════════════════════════════════════════════╝
-```
-
-</div>
