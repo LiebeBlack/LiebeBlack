@@ -1,1 +1,1 @@
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=LiebeBlack&theme=youtube-dark&hide_border=true&border_radius=5&locale=es&date_format=j%20M%5B%20Y%5D&hide_current_streak=true&hide_longest_streak=true)](https://git.io/streak-stats)
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=LiebeBlack&theme=youtube-dark&hide_border=true&border_radius=5&locale=es&date_format=j%20M%5B%20Y%5D&card_width=599&card_height=300&hide_current_streak=true&hide_longest_streak=true)](https://git.io/streak-stats)
