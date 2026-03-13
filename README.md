@@ -12,7 +12,7 @@
 
 <!-- ▬▬▬ TERMINAL DE ESTADO ▬▬▬ -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=2800&pause=1200&color=00E5FF&center=true&vCenter=true&multiline=true&repeat=true&width=750&height=80&lines=%24+system.core+--status+%E2%96%B6+OPERATIONAL;%24+arch.pattern+--load+%E2%96%B6+CLEAN+%7C+SOLID+%7C+MODULAR;%24+runtime.engine+--init+%E2%96%B6+FLUTTER+%C2%B7+DART+%C2%B7+C%23;%24+kernel.tune+--level+%E2%96%B6+OPTIMIZED+%F0%9F%90%BA" alt="Terminal Status" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=1000&color=00E5FF&center=true&vCenter=true&multiline=true&repeat=true&width=860&height=160&lines=%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97;%E2%95%91+%24+boot+--module+LIEBE_BLACK+%E2%96%B6+STATUS%3A+OPERATIONAL+%F0%9F%90%BA+%E2%95%91;%E2%95%91+%24+arch.load+--pattern+CLEAN+%7C+SOLID+%7C+DDD+%7C+MODULAR+%E2%95%91;%E2%95%91+%24+stack.init+--runtime+FLUTTER+%C2%B7+DART+%C2%B7+C%23+%C2%B7+PYTHON+%E2%95%91;%E2%95%91+%24+kernel.tune+--level+ELITE+%7C+OPTIMIZED+%7C+HARDENED+%E2%95%91;%E2%95%9A%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%9D" alt="Terminal Status" />
 </a>
 
 <br/>
@@ -38,7 +38,6 @@
 </div>
 
 <br/>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
                         § ARCHIVO DE IDENTIDAD
@@ -84,9 +83,9 @@ directive: "Transformar complejidad en elegancia"
 </td>
 <td width="45%" align="center" valign="middle">
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=LiebeBlack&theme=tokyonight" width="95%"/>
+<img src="https://github-readme-stats.vercel.app/api?username=LiebeBlack&show_icons=true&theme=tokyonight&bg_color=0d111700&hide_border=true&title_color=00e5ff&icon_color=00b4d8&text_color=c9d1d9&count_private=true&locale=es&rank_icon=github" width="95%"/>
 <br/><br/>
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=LiebeBlack&theme=tokyonight" width="95%"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=LiebeBlack&layout=compact&theme=tokyonight&bg_color=0d111700&hide_border=true&title_color=00e5ff&text_color=c9d1d9&locale=es&langs_count=6" width="95%"/>
 
 </td>
 </tr>
@@ -146,34 +145,28 @@ No escribo código que simplemente *funcione*. Escribo código que **perdure**, 
 <tr>
 <th align="center">Dominio</th>
 <th align="center">Tecnologías & Disciplinas</th>
-<th align="center">Nivel</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="center"><b>🏗️ Arquitectura</b></td>
 <td>Clean Architecture · SOLID · Modularización por capas · Inyección de dependencias · Repository Pattern · Use Cases</td>
-<td align="center"><img src="https://progress-bar.dev/92/?title=ELITE&color=00e5ff&width=140"/></td>
 </tr>
 <tr>
 <td align="center"><b>📱 Desarrollo Móvil</b></td>
 <td>Flutter · Dart · BLoC/Cubit · Widgets composables · Navegación declarativa · Responsive Layouts</td>
-<td align="center"><img src="https://progress-bar.dev/95/?title=MASTER&color=00e5ff&width=140"/></td>
 </tr>
 <tr>
 <td align="center"><b>🖥️ Desktop & Backend</b></td>
 <td>C# · Avalonia UI · .NET · Python (scripting & automatización)</td>
-<td align="center"><img src="https://progress-bar.dev/72/?title=ADVANCED&color=00b4d8&width=140"/></td>
 </tr>
 <tr>
 <td align="center"><b>🐧 OS Tuning</b></td>
 <td>Debian LXDE · Kernel-level optimization · Thermal Management · ADB · KernelSU · Hardening</td>
-<td align="center"><img src="https://progress-bar.dev/88/?title=VETERAN&color=00b4d8&width=140"/></td>
 </tr>
 <tr>
 <td align="center"><b>🔧 Herramientas</b></td>
 <td>Git/GitHub · VS Code · Android Studio · Figma · Bash scripting · CI fundamentals</td>
-<td align="center"><img src="https://progress-bar.dev/85/?title=EXPERTO&color=00b4d8&width=140"/></td>
 </tr>
 </tbody>
 </table>
@@ -203,10 +196,15 @@ No escribo código que simplemente *funcione*. Escribo código que **perdure**, 
 
 <br/>
 
-**I.S.D.I — Isla Digital** 🏝️  
-Plataforma de **alfabetización digital** diseñada con **Clean Architecture** pura.  
-Cada capa — dominio, datos, presentación — desacoplada y testeable.  
-*Flutter/Dart · SOLID · Modularidad extrema*
+**I.S.D.I — Isla Digital** 🏝️
+
+> Plataforma de **alfabetización digital** construida sobre **Clean Architecture** pura.
+> Cada capa — dominio, datos, presentación — desacoplada, testeable y evolutiva.
+
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white)
+![SOLID](https://img.shields.io/badge/SOLID-00e5ff?style=flat-square&logoColor=black)
+![Clean Arch](https://img.shields.io/badge/Clean_Arch-0d1117?style=flat-square&logoColor=00e5ff)
 
 </td>
 <td align="center" width="50%">
@@ -217,10 +215,15 @@ Cada capa — dominio, datos, presentación — desacoplada y testeable.
 
 <br/>
 
-**D.A.S.O — Device Automation & System Optimization** ⚙️  
-Motor de **optimización a nivel de sistema** para Android.  
-Control térmico, gestión de procesos y automatización vía `ADB`.  
-*Python · Shell scripting · Kernel tuning*
+**D.A.S.O — Device Automation & System Optimization** ⚙️
+
+> Motor de **optimización a nivel de sistema** para Android.
+> Control térmico, gestión de procesos y automatización vía `ADB`.
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Shell](https://img.shields.io/badge/Shell-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white)
+![ADB](https://img.shields.io/badge/ADB-3DDC84?style=flat-square&logo=android&logoColor=white)
+![Kernel](https://img.shields.io/badge/Kernel_Tuning-0d1117?style=flat-square&logo=linux&logoColor=00e5ff)
 
 </td>
 </tr>
@@ -263,20 +266,7 @@ Control térmico, gestión de procesos y automatización vía `ADB`.
 <br/>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
 
-<!-- ═══════════════════════════════════════════════════════════════════════
-                § TROFEOS & RECONOCIMIENTO
-     ═══════════════════════════════════════════════════════════════════════ -->
 
-<div align="center">
-  <h2>
-    🏆&nbsp; TROFEOS
-  </h2>
-  
-  <img src="https://github-profile-trophy.vercel.app/?username=LiebeBlack&theme=darkhub&no-frame=true&no-bg=true&column=7&margin-w=12&margin-h=12" width="90%"/>
-</div>
-
-<br/>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
                     § FRECUENCIA ACTUAL
