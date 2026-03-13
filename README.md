@@ -65,12 +65,12 @@ system:
   alias: "Liebe Black 🐺"
   class: "Software Architect & Systems Engineer"
   base: "Isla de Margarita, Venezuela 🏝️"
-  institution: "Universidad Bolivariana de Venezuela"
+  institution: "Desconocida"
 
 philosophy:
   paradigm: "Racionalismo Intuitivo"
   principle: "Desacoplar para evolucionar"
-  motto: "Cada módulo es un universo autónomo"
+  motto: "Cada módulo es autónomo"
 
 identity:
   culture: [ Otaku, Gamer, Furry Fandom ]
@@ -102,7 +102,7 @@ directive: "Transformar complejidad en elegancia"
 <div align="center">
   <h2>
     <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="28">&nbsp;
-    MANIFIESTO DEL DESARROLLADOR
+    MANIFIESTO
   </h2>
 </div>
 
@@ -110,7 +110,7 @@ directive: "Transformar complejidad en elegancia"
 <table>
 <tr><td>
 
-Estudiante de Informática en la **Universidad Bolivariana de Venezuela**, construyo software con la convicción de que la arquitectura precede a la implementación. Mi enfoque orbita en torno al **desacoplamiento radical**: cada capa, cada módulo, cada entidad opera como un sistema autónomo capaz de evolucionar sin fracturar el conjunto.
+Estudiante de Informática en la **Universidad**, construyo software con la convicción de que la arquitectura precede a la implementación. Mi enfoque orbita en torno al **desacoplamiento radical**: cada capa, cada módulo, cada entidad opera como un sistema autónomo capaz de evolucionar sin fracturar el conjunto.
 
 Domino el ecosistema **Flutter/Dart** para interfaces declarativas de alto rendimiento, y migro progresivamente hacia **C# con Avalonia UI** para conquistar el escritorio multiplataforma. En paralelo, opero a nivel de **kernel** en entornos GNU/Linux — optimización térmica, gestión granular de procesos con `ADB`, root con `KernelSU`, y hardening de sistemas **Debian LXDE** — porque el software excelente exige un hardware disciplinado.
 
@@ -234,12 +234,12 @@ No escribo código que simplemente *funcione*. Escribo código que **perdure**, 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-                § TELEMETRÍA DEL SISTEMA
+                § TELEMETRÍA
      ═══════════════════════════════════════════════════════════════════════ -->
 
 <div align="center">
   <h2>
-    📊&nbsp; TELEMETRÍA DEL SISTEMA
+    📊&nbsp; TELEMETRÍA
   </h2>
 </div>
 
@@ -266,21 +266,6 @@ No escribo código que simplemente *funcione*. Escribo código que **perdure**, 
 <br/>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
 
-
-
-<!-- ═══════════════════════════════════════════════════════════════════════
-                    § FRECUENCIA ACTUAL
-     ═══════════════════════════════════════════════════════════════════════ -->
-
-<div align="center">
-  <h2>
-    🎵&nbsp; FRECUENCIA ACTUAL
-  </h2>
-  
-  <a href="https://open.spotify.com/user/31pqzgkrqhxnbezcfxlndqzgwjmu">
-    <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=31pqzgkrqhxnbezcfxlndqzgwjmu&cover_image=true&theme=novatorem&bar_color=00e5ff&bar_color_cover=true" width="380"/>
-  </a>
-</div>
 
 <br/>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
