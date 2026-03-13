@@ -8,11 +8,11 @@
 <div align="center">
 
 <!-- ▬▬▬▬▬▬▬▬▬ HEADER CINEMÁTICO ▬▬▬▬▬▬▬▬▬ -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,30:0a192f,60:00b4d8,100:0d1117&height=300&section=header&text=LIEBE%20BLACK&fontSize=80&fontColor=00e5ff&fontAlignY=35&desc=Arquitecto%20de%20Software%20%7C%20Ingeniero%20de%20Sistemas%20%7C%20Creador%20Digital&descSize=18&descColor=8892b0&descAlignY=56&animation=twinkling&stroke=00e5ff&strokeWidth=1" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,30:0a192f,60:00b4d8,100:0d1117&height=300&section=header&text=LIEBE%20BLACK&fontSize=80&fontColor=00e5ff&fontAlignY=35&desc=Estudiante%20de%20Informatica&descSize=18&descColor=8892b0&descAlignY=56&animation=twinkling&stroke=00e5ff&strokeWidth=1" width="100%"/>
 
 <!-- ▬▬▬ TERMINAL DE ESTADO ▬▬▬ -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=1000&color=00E5FF&center=true&vCenter=true&multiline=true&repeat=true&width=860&height=160&lines=%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97;%E2%95%91+%24+boot+--module+LIEBE_BLACK+%E2%96%B6+STATUS%3A+OPERATIONAL+%F0%9F%90%BA+%E2%95%91;%E2%95%91+%24+arch.load+--pattern+CLEAN+%7C+SOLID+%7C+DDD+%7C+MODULAR+%E2%95%91;%E2%95%91+%24+stack.init+--runtime+FLUTTER+%C2%B7+DART+%C2%B7+C%23+%C2%B7+PYTHON+%E2%95%91;%E2%95%91+%24+kernel.tune+--level+ELITE+%7C+OPTIMIZED+%7C+HARDENED+%E2%95%91;%E2%95%9A%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%9D" alt="Terminal Status" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=1000&color=00E5FF&center=true&vCenter=true&multiline=true&repeat=true&width=860&height=160&lines=%E2%95%94%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%97;%E2%95%91+%24+boot+--module+LIEBE_BLACK+%E2%96%B6+STATUS%3A+OPERATIONAL+%F0%9F%90%BA+%E2%95%91;%E2%95%91+%24+arch.load+--pattern+CLEAN+%7C+SOLID+%7C+DDD+%7C+MODULAR+%E2%95%91;%E2%95%91+%24+stack.init+--runtime+FLUTTER+%C2%B7+DART+%C2%B7+C%23+%C2%B7+PYTHON+%E2%95%91;%E2%95%91+%24+kernel.tune+--level+Complete+%7C+OPTIMIZED+%7C+Safe+%E2%95%91;%E2%95%9A%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%90%E2%95%9D" alt="Status" />
 </a>
 
 <br/>
@@ -30,7 +30,7 @@
 <br/>
 
 <!-- ▬▬▬ CONECTIVIDAD ▬▬▬ -->
-<a href="https://wa.link/sy1iqo"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>&nbsp;
+<a href="https://wa.link/6j158z"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" /></a>&nbsp;
 <a href="https://t.me/LiebeBlack0"><img src="https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" /></a>&nbsp;
 <a href="https://x.com/gomez_yoangel"><img src="https://img.shields.io/badge/X_(Twitter)-000000?style=for-the-badge&logo=x&logoColor=white" /></a>&nbsp;
 <a href="mailto:yoangel.gomez.dev@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" /></a>
@@ -57,7 +57,7 @@
 
 ```yaml
 # ╔══════════════════════════════════════╗
-# ║        CORE IDENTITY MODULE          ║
+# ║        CORE IDENTITY PERSONAL        ║
 # ╚══════════════════════════════════════╝
 
 system:
@@ -77,7 +77,7 @@ identity:
   orientation: "Asexual sexo-repulsivo"
   archetype: "Ingeniero Racional × Lobo Digital"
 
-directive: "Transformar complejidad en elegancia"
+directive: "Aprender"
 ```
 
 </td>
@@ -112,9 +112,7 @@ directive: "Transformar complejidad en elegancia"
 
 Estudiante de Informática en la **Universidad**, construyo software con la convicción de que la arquitectura precede a la implementación. Mi enfoque orbita en torno al **desacoplamiento radical**: cada capa, cada módulo, cada entidad opera como un sistema autónomo capaz de evolucionar sin fracturar el conjunto.
 
-Domino el ecosistema **Flutter/Dart** para interfaces declarativas de alto rendimiento, y migro progresivamente hacia **C# con Avalonia UI** para conquistar el escritorio multiplataforma. En paralelo, opero a nivel de **kernel** en entornos GNU/Linux — optimización térmica, gestión granular de procesos con `ADB`, root con `KernelSU`, y hardening de sistemas **Debian LXDE** — porque el software excelente exige un hardware disciplinado.
-
-No escribo código que simplemente *funcione*. Escribo código que **perdure**, que se **lea como documentación** y se **extienda sin miedo**. Cada proyecto es un ejercicio de **Clean Architecture** y **SOLID** aplicados con rigor obsesivo.
+Uso **Flutter/Dart** para interfaces declarativas de alto rendimiento, y migro progresivamente hacia **C# con Avalonia UI** para conquistar el escritorio multiplataforma. En paralelo, opero a nivel de **kernel** en entornos GNU/Linux — optimización térmica, gestión de procesos con `ADB`, root con `KernelSU`, y hardening de sistemas **Debian LXDE** — porque el software excelente exige un hardware disciplinado.
 
 </td></tr>
 </table>
@@ -124,7 +122,7 @@ No escribo código que simplemente *funcione*. Escribo código que **perdure**, 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-                    § HARD SKILLS — ARSENAL TÉCNICO
+                    § SKILLS — ARSENAL TÉCNICO
      ═══════════════════════════════════════════════════════════════════════ -->
 
 <div align="center">
@@ -233,19 +231,9 @@ No escribo código que simplemente *funcione*. Escribo código que **perdure**, 
 <br/>
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
 
-<!-- ═══════════════════════════════════════════════════════════════════════
-                § TELEMETRÍA
-     ═══════════════════════════════════════════════════════════════════════ -->
-
-<div align="center">
-  <h2>
-    📊&nbsp; TELEMETRÍA
-  </h2>
-</div>
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=LiebeBlack&show_icons=true&theme=tokyonight&bg_color=0d111700&hide_border=true&title_color=00e5ff&icon_color=00b4d8&text_color=c9d1d9&count_private=true&include_all_commits=true&locale=es&rank_icon=github" width="49%"/>
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=LiebeBlack&layout=compact&theme=tokyonight&bg_color=0d111700&hide_border=true&title_color=00e5ff&text_color=c9d1d9&locale=es&langs_count=8" width="49%"/>
 
 <br/><br/>
@@ -260,11 +248,6 @@ No escribo código que simplemente *funcione*. Escribo código que **perdure**, 
 
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=LiebeBlack&theme=tokyonight&utcOffset=-4" width="49%"/>
 <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=LiebeBlack&theme=tokyonight" width="49%"/>
-
-</div>
-
-<br/>
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"/>
 
 
 <br/>
@@ -292,7 +275,7 @@ No escribo código que simplemente *funcione*. Escribo código que **perdure**, 
 > *es el que otro desarrollador lee, comprende y extiende sin miedo.*  
 > *La verdadera ingeniería empieza donde termina el ego.»*  
 >  
-> — Liebe Black 🐺
+> — Liebe Black
 
 </details>
 
