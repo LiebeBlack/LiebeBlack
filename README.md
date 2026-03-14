@@ -63,9 +63,9 @@
 system:
   name: "Yoangel Gómez"
   alias: "Liebe Black 🐺"
-  class: "Software Architect & Systems Engineer"
-  base: "Isla de Margarita, Venezuela 🏝️"
-  institution: "Desconocida"
+  class: "Secret"
+  base: "Isla de Margarita, Venezuela"
+  institution: "Unknown"
 
 philosophy:
   paradigm: "Racionalismo Intuitivo"
@@ -75,7 +75,7 @@ philosophy:
 identity:
   culture: [ Otaku, Gamer, Furry Fandom ]
   orientation: "Asexual sexo-repulsivo"
-  archetype: "Ingeniero Racional × Lobo Digital"
+  archetype: "Unknown and ******** Director (Owner)"
 
 directive: "Aprender"
 ```
