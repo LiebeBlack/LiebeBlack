@@ -80,12 +80,7 @@ identity:
 directive: "Aprender"
 ```
 
-</td>
-<td width="45%" align="center" valign="middle">
 
-<img src="https://github-readme-stats.vercel.app/api?username=LiebeBlack&show_icons=true&theme=tokyonight&bg_color=0d111700&hide_border=true&title_color=00e5ff&icon_color=00b4d8&text_color=c9d1d9&count_private=true&locale=es&rank_icon=github" width="95%"/>
-<br/><br/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=LiebeBlack&layout=compact&theme=tokyonight&bg_color=0d111700&hide_border=true&title_color=00e5ff&text_color=c9d1d9&locale=es&langs_count=6" width="95%"/>
 
 </td>
 </tr>
