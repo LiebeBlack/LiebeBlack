@@ -1,14 +1,3 @@
-<!-- 
-  ═══════════════════════════════════════════════════════════════════════
-        LIEBE BLACK | PERFIL PROFESIONAL
-        ARCHITECTURE: CLEAN // SYSTEM: OPTIMIZED // MODE: ELITE
-  ═══════════════════════════════════════════════════════════════════════
--->
-
-<div align="center">
-
-<!-- ▬▬▬▬▬▬▬▬▬ HEADER CINEMÁTICO ▬▬▬▬▬▬▬▬▬ -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,30:0a192f,60:00b4d8,100:0d1117&height=300&section=header&text=LIEBE%20BLACK&fontSize=80&fontColor=00e5ff&fontAlignY=35&desc=Estudiante%20de%20Informatica&descSize=18&descColor=8892b0&descAlignY=56&animation=twinkling&stroke=00e5ff&strokeWidth=1" width="100%"/>
 
 <!-- ▬▬▬ TERMINAL DE ESTADO ▬▬▬ -->
 <a href="https://git.io/typing-svg">
