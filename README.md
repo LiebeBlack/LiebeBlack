@@ -245,8 +245,8 @@ Uso **Flutter/Dart** para interfaces declarativas de alto rendimiento, y migro p
 
 <br/>
 
-<img src="https://komarev.com/ghpvc/?username=LiebeBlack&color=00e5ff&style=for-the-badge&label=VISITAS+AL+N%C3%9ACLEO&labelColor=0d1117" />&nbsp;
-<img src="https://img.shields.io/github/followers/LiebeBlack?label=SEGUIDORES+DEL+SISTEMA&style=for-the-badge&color=00b4d8&labelColor=0d1117" />
+<img src="https://komarev.com/ghpvc/?username=LiebeBlack&color=00e5ff&style=for-the-badge&label=VISITAS+AL+PERFIL&labelColor=0d1117" />&nbsp;
+<img src="https://img.shields.io/github/followers/LiebeBlack?label=SEGUIDORES+DE+MI+PERFIL&style=for-the-badge&color=00b4d8&labelColor=0d1117" />
 
 <br/><br/>
 
