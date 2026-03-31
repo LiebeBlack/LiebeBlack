@@ -44,14 +44,14 @@
 
 <!-- 🔗 ENLACES DE CONTACTO -->
 <p align="center">
-  <a href="mailto:yoangel.gomez@executive.com">
-    <img src="https://img.shields.io/badge/📧_EMAIL-00e5ff?style=for-the-badge&labelColor=0d1117" />
+  <a href="mailto:yoangel.gomez@gmail.com">
+    <img src="https://img.shields.io/badge/EMAIL-00e5ff?style=for-the-badge&labelColor=0d1117" />
   </a>
   <a href="https://liebeblack.github.io/LiebeBlack/">
-    <img src="https://img.shields.io/badge/🌐_PORTAFOLIO-00b4d8?style=for-the-badge&labelColor=0d1117" />
+    <img src="https://img.shields.io/badge/PORTAFOLIO-00b4d8?style=for-the-badge&labelColor=0d1117" />
   </a>
   <a href="https://github.com/LiebeBlack">
-    <img src="https://img.shields.io/badge/💻_GITHUB-0077b6?style=for-the-badge&labelColor=0d1117" />
+    <img src="https://img.shields.io/badge/GITHUB-0077b6?style=for-the-badge&labelColor=0d1117" />
   </a>
 </p>
 
