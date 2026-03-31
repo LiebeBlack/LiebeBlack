@@ -1,3 +1,5 @@
+
+</div>
 <!-- 🚀 HEADER ESTÁTICO (sin animación problemática) -->
 <p align="center">
   <img src="https://img.shields.io/badge/📍_Margarita%2C%20Venezuela-00e5ff?style=for-the-badge&labelColor=0d1117" />
@@ -35,7 +37,6 @@
 | **E.E.D.A Mobile** | Kotlin + Jetpack Compose | 🟢 Producción | [🔗 Repo](https://github.com/LiebeBlack/E.E.D.A-Android) |
 | **I.S.D.I PC** | Python 3.12 + Flet | 🟢 Activo | [🔗 Web](https://liebeblack.github.io/E.E.D.A-PC/) |
 | **E.E.D.A Hub** | Analíticas en Tiempo Real | 🟡 Desarrollo | [🔗 Hub](https://liebeblack.github.io/EEDA/) |
-| **Portafolio** | Sitio Estático | 🟢 Producción | [🔗 Sitio](https://liebeblack.github.io/LiebeBlack/) |
 
 </div>
 
@@ -65,5 +66,5 @@
 <br/>
 
 <p align="center" style="color: #00e5ff; font-size: 14px; font-weight: bold;">
-  Estrategia de Ingeniería de Software © 2026 // Yoangel Nikolas Gómez
+  Yoangel Gómez
 </p>
