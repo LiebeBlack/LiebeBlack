@@ -1,184 +1,402 @@
 <!DOCTYPE html>
-<html lang="es-419">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoangel Gómez | Arquitectura Estratégica de Software • v14</title>
-    <meta name="description"
-        content="Estrategia en Ingeniería de Software, Architecturas Sistémicas y Optimización Crítica de Alto Rendimiento.">
+    <title>Yoangel Gómez — Arquitecto de Software · Android · Sistemas · EdTech</title>
+    <meta name="theme-color" content="#040710">
+    <meta name="description" content="Yoangel Gómez — Arquitecto de Software. Creador de E.E.D.A., ecosistema educativo dual-plataforma (Android + Desktop) de ciberseguridad y lógica computacional para edades de 3 a 16 años.">
+    <meta name="keywords" content="Yoangel Gómez, Arquitecto de Software, Android Developer, Kotlin, Jetpack Compose, Python, Clean Architecture, EdTech, E.E.D.A, Portafolio">
+    <meta name="author" content="Yoangel Gómez">
+    <meta property="og:title" content="Yoangel Gómez — Arquitecto de Software">
+    <meta property="og:description" content="Portafolio profesional. Creador de E.E.D.A., ecosistema educativo dual-plataforma. Kotlin, Python, Clean Architecture, Security by Design.">
+    <meta property="og:type" content="website">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- ELITE PROGRESS -->
-    <div class="progress-bar" id="progress"></div>
+    <!-- AMBIENT BACKGROUND -->
+    <div class="ambient-layer" aria-hidden="true">
+        <div class="ambient-orb ambient-orb--cyan"></div>
+        <div class="ambient-orb ambient-orb--violet"></div>
+    </div>
+    <div class="ambient-grid" aria-hidden="true"></div>
 
-    <!-- LUXURY LOADING -->
-    <div id="loader" class="load-overlay">
-        <div class="loader-content">Yoangel Gómez // Estrategia</div>
+    <!-- PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__logo"><span>Y.G.</span></div>
+        <div class="preloader__bar-track">
+            <div class="preloader__bar"></div>
+        </div>
+        <span class="preloader__status">Cargando portafolio...</span>
     </div>
 
-    <!-- COMPACT FLOATING NAVBAR -->
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="#hero">Identidad</a></li>
-            <li><a href="#expertise">Capacidades</a></li>
-            <li><a href="#projects">Sistemas</a></li>
-        </ul>
-        <a href="mailto:yoangel.gomez@executive.com" class="btn btn-outline"
-            style="min-width: 85px; padding: 0.5rem; font-size:0.6rem; width: auto; border-radius:50px;">CONEXIÓN</a>
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__brand">
+                <span class="nav__brand-dot"></span>
+                YOANGEL GÓMEZ
+            </a>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="#perfil">Perfil</a></li>
+                <li><a href="#proyecto">Proyecto</a></li>
+                <li><a href="#modulos">Módulos</a></li>
+                <li><a href="#stack">Tecnologías</a></li>
+            </ul>
+            <a href="#contacto" class="nav__cta">Contacto →</a>
+            <div class="nav__toggle" id="nav-toggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
     </nav>
 
-    <!-- CONTENT FLOW -->
     <main>
 
-        <!-- IDENTITY (ONE-LINE PRIORITY) -->
-        <section id="hero" class="section hero">
-            <div class="reveal">
-                <span class="badge">Arquitecto Jefe de Software</span>
-                <h1 class="title">Yoangel Gómez</h1>
-                <p class="subtitle">Desarrollo de infraestructuras puras, arquitectura modular y optimización sistémica
-                    para la ingeniería moderna avanzada.</p>
-                <div class="btn-group">
-                    <a href="#projects" class="btn btn-primary">VER PORTAFOLIO</a>
-                    <a href="#expertise" class="btn btn-outline">ESTRATEGIA TÉCNICA</a>
+        <!-- ══════════════════════════════════════════
+             HERO
+             ══════════════════════════════════════════ -->
+        <section class="hero" id="hero">
+            <div class="hero__content">
+                <div class="hero__badge reveal">
+                    <span class="hero__badge-dot"></span>
+                    Disponible para nuevos proyectos · 2026
                 </div>
+
+                <div class="hero__identity reveal reveal-delay-1">
+                    <div class="hero__avatar">
+                        <img src="img/avatar.png" alt="Yoangel Gómez" width="260" height="260">
+                    </div>
+                    <div class="hero__identity-text">
+                        <h1 class="hero__acronym">Yoangel Gómez</h1>
+                        <p class="hero__full-name">Arquitecto de Software</p>
+                    </div>
+                </div>
+
+                <a href="#proyecto" class="hero__cta reveal reveal-delay-2">
+                    <span>Ver caso de estudio</span>
+                    <span class="hero__cta-arrow">→</span>
+                </a>
+
+                <a href="#perfil" class="hero__scroll reveal reveal-delay-3" aria-label="Desplazar hacia abajo">↓</a>
             </div>
         </section>
 
-        <!-- CAPACIDADES (EXPANDABLE & COMPLETE) -->
-        <section id="expertise" class="section">
-            <div class="section-head reveal">
-                <h2 style="font-size:3.5rem; font-weight:800; margin-bottom:2rem; letter-spacing:-0.03em;">Experticia
-                    <span style="color:var(--accent-vibrant)">Sistémica</span>
-                </h2>
-                <p style="font-size:1.35rem; color:var(--text-secondary); max-width:500px; margin: 0 auto;">Nivel de
-                    dominio avanzado en el diseño y despliegue de soluciones tecnológicas críticas.</p>
-            </div>
+        <!-- ══════════════════════════════════════════
+             PERFIL PROFESIONAL
+             ══════════════════════════════════════════ -->
+        <section class="section arch" id="perfil">
+            <div class="container">
+                <span class="section__label reveal">Perfil profesional</span>
+                <h2 class="section__title reveal reveal-delay-1">Ingeniería de software con <span class="gradient-text">impacto verificable</span></h2>
+                <p class="section__subtitle reveal reveal-delay-2">
+                    Arquitecto de Software con trayectoria en Android nativo (Kotlin), aplicaciones de escritorio (Python/Flet) y productos educativos complejos. Responsable del ciclo completo de E.E.D.A. — desde la investigación del dominio hasta el despliegue en producción.
+                </p>
 
-            <div class="grid">
-                <div class="card reveal">
-                    <h3>Arquitectura</h3>
-                    <p class="main-info">Diseño Limpio y Hexagonal</p>
-                    <div class="expand-content">
-                        <p class="extra-info">Dominios desacoplados bajo estándares de escalabilidad estratégica.
-                            Implementación de patrones SOLID, DDD (Domain-Driven Design) y Microservicios para
-                            infraestructuras empresariales de alto nivel.</p>
+                <div class="arch__grid" style="margin-top: var(--space-xl);">
+                    <div class="arch__panel reveal reveal-delay-3">
+                        <div class="arch__panel-label arch__panel-label--android">
+                            <span>⚡</span> Competencias principales
+                        </div>
+                        <h3 class="arch__panel-title">Arquitectura, rendimiento, entrega</h3>
+                        <p class="arch__panel-desc">
+                            Arquitecturas modulares bajo principios SOLID con separación estricta de responsabilidades. Concurrencia estructurada con Coroutines y Flow. Gestión preventiva de deuda técnica. Documentación completa en cada entregable.
+                        </p>
+                        <div class="arch__panel-tags">
+                            <span class="arch__tag">Clean Architecture</span>
+                            <span class="arch__tag">SOLID</span>
+                            <span class="arch__tag">Domain-Driven Design</span>
+                            <span class="arch__tag">Security by Design</span>
+                            <span class="arch__tag">Offline-First</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="card reveal" style="transition-delay:0.1s">
-                    <h3>Desarrollo</h3>
-                    <p class="main-info">Sistemas de Alto Rendimiento</p>
-                    <div class="expand-content">
-                        <p class="extra-info">Programación avanzada en Kotlin, C# y Python Estratégico. Especialización
-                            en lógica de procesamiento crítico, bases de datos SQL/NoSQL y optimización de memoria en
-                            tiempo de ejecución.</p>
-                    </div>
-                </div>
-
-                <div class="card reveal" style="transition-delay:0.2s">
-                    <h3>Simetría</h3>
-                    <p class="main-info">Eficiencia Operativa Crítica</p>
-                    <div class="expand-content">
-                        <p class="extra-info">Control de bajo nivel y orquestación de recursos sistémicos. Auditoría de
-                            rendimiento térmico, reducción de latencia y gestión de procesos operativos complejos para
-                            hardware nativo.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SYSTEMS (COMPLETE EXPANSION) -->
-        <section id="projects" class="section">
-            <div class="section-head reveal">
-                <h2 style="font-size:3.5rem; font-weight:800; margin-bottom:2rem; letter-spacing:-0.05em;">Sistemas
-                    <span style="color:var(--accent-vibrant)">Activos</span>
-                </h2>
-                <p style="font-size:1.35rem; color:var(--text-secondary); max-width:500px; margin: 0 auto;">Obras de
-                    ingeniería desplegadas mediante protocolos profesionales.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card reveal">
-                    <h3 style="font-size:0.85rem; letter-spacing:0.4rem;">I.S.D.I — Isla Digital</h3>
-                    <p class="main-info">Ecosistema Educativo Nativo</p>
-                    <div class="expand-content">
-                        <p class="extra-info">Plataforma robusta para la formación masiva bajo estándares de Clean
-                            Architecture. Implementación en Kotlin con integración de APIs seguidas por capas de
-                            seguridad AES-256.</p>
-                        <a href="https://github.com/LiebeBlack/I.S.D.I" target="_blank" class="btn btn-outline"
-                            style="width:100%; border-radius:12px; margin-top:2.5rem; font-size:0.75rem;">REPOSITORIO EN
-                            GITHUB</a>
-                    </div>
-                </div>
-
-                <div class="card reveal" style="transition-delay:0.1s">
-                    <h3 style="font-size:0.85rem; letter-spacing:0.4rem;">D.A.S.O Engine</h3>
-                    <p class="main-info">Optimización de Núcleo Móvil</p>
-                    <div class="expand-content">
-                        <p class="extra-info">Motor de limpieza sistémica y gestión de hilos prioritarios para entornos
-                            Android exigentes. Orquestación de limpieza de caché y optimización de swap de memoria en
-                            bajo nivel.</p>
-                        <a href="https://github.com/LiebeBlack" target="_blank" class="btn btn-outline"
-                            style="width:100%; border-radius:12px; margin-top:2.5rem; font-size:0.75rem;">REVISAR
-                            ESTRUCTURA</a>
-                    </div>
-                </div>
-
-                <div class="card reveal" style="transition-delay:0.2s">
-                    <h3 style="font-size:0.85rem; letter-spacing:0.4rem;">I.S.D.I-PC Framework</h3>
-                    <p class="main-info">App de Escritorio Avanzado</p>
-                    <div class="expand-content">
-                        <p class="extra-info">App integral del ecosistema I.S.D.I para PC. Optimizado mediante lógica
-                            funcional Python para máxima velocidad de
-                            respuesta en el App.</p>
-                        <a href="https://github.com/LiebeBlack/I.S.D.I-PC" target="_blank" class="btn btn-outline"
-                            style="width:100%; border-radius:12px; margin-top:2.5rem; font-size:0.75rem;">VER
-                            ARQUITECTURA</a>
+                    <div class="arch__panel reveal reveal-delay-4">
+                        <div class="arch__panel-label arch__panel-label--pc">
+                            <span>🎯</span> Enfoque operativo
+                        </div>
+                        <h3 class="arch__panel-title">Responsabilidad integral del producto</h3>
+                        <p class="arch__panel-desc">
+                            Análisis de dominio previo a la implementación. Coordinación simultánea de persistencia, motor de contenido e interfaz. Decisiones de diseño documentadas con justificación técnica. Flujos de CI/CD automatizados. Monitorización continua de rendimiento.
+                        </p>
+                        <div class="arch__panel-tags">
+                            <span class="arch__tag">Ciclo completo</span>
+                            <span class="arch__tag">Documentación técnica</span>
+                            <span class="arch__tag">CI/CD</span>
+                            <span class="arch__tag">Profiling</span>
+                            <span class="arch__tag">Metodología ágil</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CONNECTION -->
-        <section id="contact" class="section reveal">
-            <div
-                style="padding:7rem 3.5rem; background:var(--bg-surface); border:1px solid var(--accent-vibrant); border-radius:32px; width:100%; box-shadow: 0 0 100px var(--accent-glow) inset;">
-                <h2 class="contact-title">Establecer Enlace Profesional</h2>
-                <p
-                    style="color:var(--text-secondary); margin-bottom:4.5rem; font-size:1.4rem; max-width:500px; margin-left:auto; margin-right:auto;">
-                    Disponible para consultoría técnica senior, auditoría de sistemas y arquitectura de alta
-                    complejidad.</p>
-                <a href="mailto:yoangel.gomez@executive.com" class="btn btn-primary"
-                    style="padding:1.4rem 7rem; border-radius:60px; font-size:1rem; box-shadow: 0 20px 60px var(--accent-glow);">SOLICITAR
-                    CONEXIÓN</a>
+        <!-- ══════════════════════════════════════════
+             CASO DE ESTUDIO — E.E.D.A.
+             ══════════════════════════════════════════ -->
+        <section class="section" id="proyecto">
+            <div class="container">
+                <span class="section__label reveal">Caso de estudio</span>
+                <h2 class="section__title reveal reveal-delay-1">E.E.D.A. — <span class="gradient-text">Ecosistema Educativo Digital Adaptable</span></h2>
+                <p class="section__subtitle reveal reveal-delay-2">
+                    Plataforma educativa de doble entorno (Android + escritorio) para ciberseguridad y lógica computacional. Orientada a niños y adolescentes de 3 a 16 años bajo el modelo pedagógico CPA (Concreto → Pictórico → Abstracto).
+                </p>
+
+                <div class="arch__grid" style="margin-top: var(--space-xl);">
+                    <!-- E.E.D.A. ANDROID -->
+                    <div class="arch__panel reveal reveal-delay-3">
+                        <div class="arch__panel-label arch__panel-label--android">
+                            <span>📱</span> E.E.D.A. Android
+                        </div>
+                        <h3 class="arch__panel-title">Aplicación móvil nativa</h3>
+                        <p class="arch__panel-desc">
+                            Aplicación completa en Jetpack Compose con Material Design 3 sobre Clean Architecture. Sistema de gamificación con el "Perfil del Aventurero" — métricas en tiempo real de Lógica, Creatividad y Resolución de Problemas. Rendimiento optimizado para dispositivos de gama baja mediante carga diferida y StateFlow.
+                        </p>
+                        <div class="arch__panel-image">
+                            <img src="img/eeda_android.png" alt="E.E.D.A. Android — Panel del Perfil Aventurero" loading="lazy">
+                        </div>
+                        <div class="arch__panel-tags">
+                            <span class="arch__tag">Jetpack Compose</span>
+                            <span class="arch__tag">Material Design 3</span>
+                            <span class="arch__tag">Coroutines / Flow</span>
+                            <span class="arch__tag">Clean Architecture</span>
+                            <span class="arch__tag">UI Adaptativa</span>
+                        </div>
+                    </div>
+
+                    <!-- E.E.D.A. PC -->
+                    <div class="arch__panel reveal reveal-delay-4">
+                        <div class="arch__panel-label arch__panel-label--pc">
+                            <span>💻</span> E.E.D.A. Escritorio
+                        </div>
+                        <h3 class="arch__panel-title">Framework modular de escritorio</h3>
+                        <p class="arch__panel-desc">
+                            Versión desktop con Python y Flet bajo arquitectura modular propia. Dos motores especializados: ContentEngine (distribución progresiva de contenido) y DatabaseManager (persistencia local con integridad transaccional). 8 unidades temáticas autónomas con funcionamiento offline.
+                        </p>
+                        <div class="arch__panel-image">
+                            <img src="img/eeda_pc.png" alt="E.E.D.A. PC — Arquitectura modular con 8 unidades temáticas" loading="lazy">
+                        </div>
+                        <div class="arch__panel-tags">
+                            <span class="arch__tag">Python 3.12</span>
+                            <span class="arch__tag">Flet v0.27</span>
+                            <span class="arch__tag">SQLite3</span>
+                            <span class="arch__tag">ContentEngine</span>
+                            <span class="arch__tag">Offline-First</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════
+             MÓDULOS
+             ══════════════════════════════════════════ -->
+        <section class="section arch" id="modulos">
+            <div class="container">
+                <span class="section__label reveal">Alcance curricular</span>
+                <h2 class="section__title reveal reveal-delay-1">8 módulos de <span class="gradient-text">especialización técnica</span></h2>
+                <p class="section__subtitle reveal reveal-delay-2">
+                    Cada módulo es una disciplina independiente con progresión adaptativa bajo el modelo CPA. El contenido se ajusta al nivel cognitivo del usuario según edad y rendimiento acumulado.
+                </p>
+
+                <div class="modules__grid">
+                    <div class="module-card reveal reveal-delay-1">
+                        <div class="module-card__icon">🛡️</div>
+                        <h3 class="module-card__title">Ciberseguridad</h3>
+                        <p class="module-card__desc">Protección de identidad digital, fundamentos de criptografía y conciencia de amenazas, calibrados para edades formativas.</p>
+                    </div>
+
+                    <div class="module-card reveal reveal-delay-2">
+                        <div class="module-card__icon">🧠</div>
+                        <h3 class="module-card__title">Lógica Computacional</h3>
+                        <p class="module-card__desc">Pensamiento algorítmico, razonamiento abstracto y descomposición estructurada de problemas complejos.</p>
+                    </div>
+
+                    <div class="module-card reveal reveal-delay-3">
+                        <div class="module-card__icon">🌐</div>
+                        <h3 class="module-card__title">Redes y Conectividad</h3>
+                        <p class="module-card__desc">Simulaciones de topología de red, protocolos de comunicación y prácticas de navegación segura.</p>
+                    </div>
+
+                    <div class="module-card reveal reveal-delay-4">
+                        <div class="module-card__icon">🤖</div>
+                        <h3 class="module-card__title">Inteligencia Artificial</h3>
+                        <p class="module-card__desc">Redes neuronales, aprendizaje automático intuitivo y ética aplicada a sistemas inteligentes.</p>
+                    </div>
+
+                    <div class="module-card reveal reveal-delay-5">
+                        <div class="module-card__icon">🔧</div>
+                        <h3 class="module-card__title">Hardware y Arquitectura</h3>
+                        <p class="module-card__desc">Arquitectura de computadores, identificación de componentes y fundamentos de sistemas embebidos.</p>
+                    </div>
+
+                    <div class="module-card reveal reveal-delay-6">
+                        <div class="module-card__icon">⌨️</div>
+                        <h3 class="module-card__title">Programación</h3>
+                        <p class="module-card__desc">Progresión desde programación visual por bloques hasta código textual con principios de código limpio.</p>
+                    </div>
+
+                    <div class="module-card reveal reveal-delay-7">
+                        <div class="module-card__icon">⚙️</div>
+                        <h3 class="module-card__title">Sistemas Operativos</h3>
+                        <p class="module-card__desc">Fundamentos de kernel, gestión de procesos concurrentes, sistemas de archivos y modelos de interacción.</p>
+                    </div>
+
+                    <div class="module-card reveal reveal-delay-8">
+                        <div class="module-card__icon">⚖️</div>
+                        <h3 class="module-card__title">Ética Digital</h3>
+                        <p class="module-card__desc">Ciudadanía digital responsable, derechos de privacidad, pensamiento crítico y uso consciente de la tecnología.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════
+             TECNOLOGÍAS
+             ══════════════════════════════════════════ -->
+        <section class="section stack" id="stack">
+            <div class="container">
+                <span class="section__label reveal">Infraestructura técnica</span>
+                <h2 class="section__title reveal reveal-delay-1">Stack de <span class="gradient-text">producción</span></h2>
+                <p class="section__subtitle reveal reveal-delay-2">
+                    Tecnologías seleccionadas por rendimiento comprobable y estabilidad a largo plazo.
+                </p>
+
+                <div class="stack__grid">
+                    <div class="stack__col reveal reveal-delay-3">
+                        <div class="stack__col-header">
+                            <div class="stack__col-icon stack__col-icon--android">📱</div>
+                            <div>
+                                <div class="stack__col-name">Android Nativo</div>
+                                <div class="stack__col-platform">Plataforma móvil principal</div>
+                            </div>
+                        </div>
+                        <div class="stack__items">
+                            <div class="stack__item">
+                                <span class="stack__item-name">Kotlin</span>
+                                <span class="stack__item-version">v2.1.x</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">Jetpack Compose</span>
+                                <span class="stack__item-version">BOM 2026.x</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">Coroutines / Flow</span>
+                                <span class="stack__item-version">Concurrencia estructurada</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">Material Design 3</span>
+                                <span class="stack__item-version">Dynamic Color</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">Room + Cifrado</span>
+                                <span class="stack__item-version">SQLCipher</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">Android Gradle Plugin</span>
+                                <span class="stack__item-version">v9.0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stack__col reveal reveal-delay-4">
+                        <div class="stack__col-header">
+                            <div class="stack__col-icon stack__col-icon--pc">💻</div>
+                            <div>
+                                <div class="stack__col-name">Escritorio</div>
+                                <div class="stack__col-platform">Framework multiplataforma</div>
+                            </div>
+                        </div>
+                        <div class="stack__items">
+                            <div class="stack__item">
+                                <span class="stack__item-name">Python</span>
+                                <span class="stack__item-version">v3.12</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">Flet (Flutter Desktop)</span>
+                                <span class="stack__item-version">v0.27.3</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">SQLite3</span>
+                                <span class="stack__item-version">Embebido</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">ContentEngine</span>
+                                <span class="stack__item-version">Desarrollo propio</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">DatabaseManager</span>
+                                <span class="stack__item-version">Desarrollo propio</span>
+                            </div>
+                            <div class="stack__item">
+                                <span class="stack__item-name">Arquitectura Modular</span>
+                                <span class="stack__item-version">8 Unidades</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <p
-            style="font-size:0.9rem; color:var(--text-muted); letter-spacing:0.4rem; font-weight:800; text-transform:uppercase;">
-            Software Engineering Strategy © 2026 // Yoangel Gómez // Locked v13.5
-        </p>
+    <!-- CONTACTO -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div class="footer__brand-name">Yoangel Gómez</div>
+                    <p class="footer__brand-desc">
+                        Arquitecto de Software. Creador de E.E.D.A., ecosistema educativo dual-plataforma para ciberseguridad y lógica computacional.
+                    </p>
+                </div>
+
+                <div class="footer__col">
+                    <div class="footer__col-title">Plataformas</div>
+                    <div class="footer__links">
+                        <a href="https://eeda.pages.dev/" target="_blank" rel="noopener" class="footer__link">
+                            E.E.D.A. — Portal principal
+                            <span class="footer__link-arrow">→</span>
+                        </a>
+                        <a href="https://liebeblack.github.io/E.E.D.A-Android/" target="_blank" rel="noopener" class="footer__link">
+                            Documentación Android
+                            <span class="footer__link-arrow">→</span>
+                        </a>
+                        <a href="https://liebeblack.github.io/E.E.D.A-PC/" target="_blank" rel="noopener" class="footer__link">
+                            Documentación Escritorio
+                            <span class="footer__link-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__col">
+                    <div class="footer__col-title">Código fuente</div>
+                    <div class="footer__links">
+                        <a href="https://github.com/LiebeBlack/E.E.D.A-Android" target="_blank" rel="noopener" class="footer__link">
+                            Repositorio Android
+                            <span class="footer__link-arrow">→</span>
+                        </a>
+                        <a href="https://github.com/LiebeBlack/E.E.D.A-PC" target="_blank" rel="noopener" class="footer__link">
+                            Repositorio Escritorio
+                            <span class="footer__link-arrow">→</span>
+                        </a>
+                        <a href="https://github.com/LiebeBlack" target="_blank" rel="noopener" class="footer__link">
+                            Perfil de GitHub
+                            <span class="footer__link-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <span class="footer__copy">© 2026 Yoangel Gómez — Todos los derechos reservados.</span>
+                <span class="footer__version">PORTAFOLIO v2.0</span>
+            </div>
+        </div>
     </footer>
 
-    <!-- JS -->
     <script src="js/script.js"></script>
 </body>
-
 </html>
