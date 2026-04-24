@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexión Profesional | Yoangel Gómez</title>
+    
+    <!-- SEO & Identity -->
+    <meta name="description" content="Contacto directo con Yoangel Gómez. Consultoría en Arquitectura de Software y Sistemas de Alto Rendimiento.">
+    <meta name="author" content="Yoangel Gómez">
+    
+    <!-- Fonts & Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@100;300;600;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/contact.css">
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="js/contact.js" defer></script>
+</head>
+<body class="contact-page">
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__ring"></div>
+        <div class="preloader__logo">YG</div>
+        <span class="preloader__status">Sistemas Cargando</span>
+    </div>
+
+    <!-- Ambient Architecture -->
+    <div class="ambient-glow" aria-hidden="true"></div>
+
+    <!-- Navbar: Minimalist Precision -->
+    <nav class="nav-contact">
+        <div class="nav-contact__inner">
+            <ul class="nav-contact__links">
+                <li><a href="index.html#perfil">Perfil</a></li>
+                <li><a href="index.html#experiencia">Trayectoria</a></li>
+                <li><a href="index.html#proyectos">Proyectos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Minimalist Contact Section -->
+        <section class="contact-section" id="contacto">
+            <div class="contact-container single-col">
+                
+                <!-- Form Only - Extreme Minimalism -->
+                <div class="contact-form-wrapper" data-aos="fade-up">
+                    <form id="contact-form" action="https://formspree.io/f/xpqopvkd" method="POST" enctype="multipart/form-data">
+                        
+                        <div class="form-header" style="margin-bottom: 4rem; text-align: center;">
+                            <span class="section-label">Conecta</span>
+                            <h1 class="title-extreme" style="font-size: 3rem; margin-top: 1rem;">Hablemos</h1>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Tu Nombre</label>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="¿Cómo te llamas?" required>
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="email" class="form-label">Tu Email</label>
+                                <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Archivos</label>
+                            <div class="file-input-wrapper">
+                                <label for="file-upload" class="file-label">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                                    <span>Adjuntar (opcional)</span>
+                                </label>
+                                <input type="file" id="file-upload" name="attachment" style="display: none;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">¿Cómo puedo ayudarte?</label>
+                            <textarea id="message" name="message" class="form-input" placeholder="Cuéntame sobre tu idea o proyecto..." required style="min-height: 150px;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-extreme" style="margin-top: 2rem;">
+                            Enviar Mensaje
+                        </button>
+
+                        <div id="status" style="margin-top: 2rem; font-family: 'JetBrains Mono'; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--neon-cyan); text-align: center;"></div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer: Absolute Minimalism -->
+    <footer class="footer-contact">
+        <p class="footer-copyright">
+            Yoangel Gómez · 2026
+        </p>
+    </footer>
+
+</body>
+</html>

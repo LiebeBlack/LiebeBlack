@@ -1,593 +1,411 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoangel Gómez — Arquitecto de Software</title>
-    <meta name="theme-color" content="#0a0a0f">
+    <title>Arquitecto de Software | Yoangel Gómez</title>
+    <meta name="theme-color" content="#020203">
     <meta name="description" content="Arquitecto de Software especializado en Android nativo, sistemas escalables y arquitectura limpia. Transformo ideas en productos digitales robustos.">
     <meta name="keywords" content="Yoangel Gómez, Arquitecto de Software, Android Developer, Kotlin, Jetpack Compose, Python, Clean Architecture, Portafolio">
     <meta name="author" content="Yoangel Gómez">
     <meta property="og:title" content="Yoangel Gómez — Arquitecto de Software">
     <meta property="og:description" content="Arquitecto de Software especializado en Android nativo y sistemas escalables. Kotlin, Python, Clean Architecture.">
     <meta property="og:type" content="website">
+    
+    <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@100;300;600;900&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@100;300;600;900&display=swap" rel="stylesheet">
     <link rel="preload" href="img/avatar.png" as="image" fetchpriority="high">
 
+    <!-- Styles & Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <style>
+        :root {
+            /* Base Colors from contact.css */
+            --bg-ultra-dark: #020203;
+            --bg-void: hsl(228, 40%, 1%);
+            --neon-violet: #bc13fe;
+            --neon-cyan: #00f3ff;
+            --cyan-400: hsl(175, 100%, 62%);
+            --violet-400: hsl(270, 85%, 65%);
+            --gradient-primary: linear-gradient(135deg, var(--cyan-400), var(--violet-400));
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --text-40: hsla(220, 15%, 55%, 1);
+            
+            /* Glassmorphism */
+            --glass-bg: rgba(10, 10, 15, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --glass-blur: blur(40px);
+            
+            /* Typography */
+            --font-title: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        [data-theme="dark"] { --bg-void: hsl(228, 40%, 1%); }
+        .preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--bg-ultra-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s;
+        }
+        .preloader__ring {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: relative;
+            border: 2px solid transparent;
+            border-top-color: var(--cyan-400);
+            border-right-color: var(--violet-400);
+            animation: ringRotate 1s linear infinite;
+        }
+        @keyframes ringRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .preloader__logo {
+            font-family: sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        
+        /* Ambient Glow - From contact.css */
+        .ambient-glow {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 0% 0%, rgba(0, 243, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(188, 19, 254, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+    </style>
+
     <script>
-        // Dark theme is always the default
         document.documentElement.setAttribute('data-theme', 'dark');
     </script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 </head>
 
-<body>
+<body class="main-page">
 
-    <!-- CUSTOM CURSOR -->
-    <div class="custom-cursor" aria-hidden="true"></div>
-    <div class="custom-cursor-glow" aria-hidden="true"></div>
-
-    <div class="ambient-layer" aria-hidden="true">
-        <div class="ambient-orb ambient-orb--cyan"></div>
-        <div class="ambient-orb ambient-orb--violet"></div>
-        <div class="ambient-orb ambient-orb--magenta"></div>
-    </div>
-    <div class="ambient-grid" aria-hidden="true"></div>
+    <!-- Ambient Glow - Minimalist Architecture -->
+    <div class="ambient-glow" aria-hidden="true"></div>
 
     <!-- PRELOADER -->
     <div id="preloader" class="preloader">
         <div class="preloader__ring"></div>
         <div class="preloader__logo">YG</div>
-        <span class="preloader__status">Iniciando</span>
+        <span class="preloader__status">Sistemas Cargando</span>
     </div>
 
-    <!-- NAVIGATION -->
-    <nav class="nav" id="nav">
-        <div class="nav__inner">
-            <a href="#" class="nav__brand">
-                <span class="nav__brand-dot"></span>
-                YOANGEL GÓMEZ
-            </a>
-            <ul class="nav__links" id="nav-links">
+    <!-- NAVIGATION: Minimalist Floating Pill -->
+    <nav class="nav-contact" id="nav">
+        <div class="nav-contact__inner">
+            <ul class="nav-contact__links">
                 <li><a href="#perfil">Perfil</a></li>
-                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#experiencia">Trayectoria</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#stack">Stack</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
-            <button class="nav__theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-                <svg class="theme-icon-light" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-                <svg class="theme-icon-dark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
-            </button>
-            <a href="#contacto" class="nav__cta">Contacto</a>
-            <div class="nav__toggle" id="nav-toggle" aria-label="Menú">
-                <span></span><span></span><span></span>
-            </div>
         </div>
     </nav>
 
     <main>
 
-        <!-- ══════════════════════════════════════════
-             HERO
-             ══════════════════════════════════════════ -->
-        <section class="hero" id="hero">
-            <div class="hero__content">
-                <div class="hero__identity reveal reveal-delay-1">
-                    <div class="hero__avatar">
-                        <div class="hero__avatar-ring"></div>
-                        <img src="img/avatar.png" alt="Yoangel Gómez" width="240" height="240" fetchpriority="high" decoding="async">
+        <!-- HERO: Architectural Minimalism -->
+        <section class="hero-contact" id="hero">
+            <div class="hero-layout" data-aos="fade-up">
+                <div class="hero-avatar-container">
+                    <div class="hero-avatar">
+                        <img src="img/avatar_premium.png" alt="Yoangel Gómez" width="216" height="216" fetchpriority="high" decoding="async">
+                        <div class="avatar-shimmer"></div>
                     </div>
-                    <div class="hero__identity-text">
-                        <h1 class="hero__acronym">Yoangel Gómez</h1>
-                        <p class="hero__tagline">
-                            <span class="typewriter"></span>
-                            <span class="cursor">|</span>
-                        </p>
-                        <p class="hero__full-name">Arquitectura de Software · Android · Sistemas</p>
-                    </div>
+                    <div class="avatar-glow"></div>
                 </div>
-
-                <div class="hero__actions reveal reveal-delay-2">
-                    <a href="#proyectos" class="hero__cta hero__cta--primary">
-                        <span>Explorar proyectos</span>
-                        <span class="hero__cta-arrow">→</span>
-                    </a>
-                    <a href="#contacto" class="hero__cta hero__cta--secondary">
-                        <span>Contactar</span>
-                    </a>
+                
+                <div class="hero-content">
+                    <h1 class="title-extreme">Yoangel Gómez</h1>
+                    <span class="hero-subtitle">Arquitectura de Software · Android · Sistemas</span>
                 </div>
-
-                <a href="#perfil" class="hero__scroll reveal reveal-delay-3" aria-label="Desplazar hacia abajo">
-                    <span class="hero__scroll-line"></span>
-                </a>
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════
-             PERFIL PROFESIONAL
-             ══════════════════════════════════════════ -->
-        <section class="section arch" id="perfil">
-            <div class="container">
-                <span class="section__label reveal">Perfil profesional</span>
-                <h2 class="section__title reveal reveal-delay-1">Ingeniería de software con <span class="gradient-text">impacto verificable</span></h2>
-                <p class="section__subtitle reveal reveal-delay-2">
-                    Arquitecto de Software con trayectoria en Android nativo (Kotlin), aplicaciones de escritorio (Python) y sistemas distribuidos. Especializado en arquitecturas modulares, rendimiento óptimo y entrega de productos de alta calidad desde la concepción hasta producción.
-                </p>
-
-                <div class="arch__grid" style="margin-top: var(--space-xl);">
-                    <div class="arch__panel reveal reveal-delay-3">
-                        <div class="arch__panel-label arch__panel-label--android">
-                            <span class="arch__panel-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                                </svg>
-                            </span>
-                            <span>Competencias principales</span>
+        <!-- PERFIL: Professional Identity -->
+        <section class="section-profile" id="perfil">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Mi Perfil Profesional</span>
+                <h2 class="section-title">Construyo Arquitectura de <span class="gradient-text">Alto Impacto</span></h2>
+            </div>
+            
+            <div class="profile-grid">
+                <div class="profile-card" data-aos="fade-up" data-aos-delay="100">
+                    <span class="profile-label">Mis Competencias</span>
+                    <h3 class="profile-title">Arquitectura, Rendimiento, Entrega</h3>
+                    <p class="profile-desc">
+                        Diseño de arquitecturas modulares bajo principios SOLID. Concurrencia estructurada con Coroutines y Flow. Gestión preventiva de deuda técnica.
+                    </p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-text">Años</span>
                         </div>
-                        <h3 class="arch__panel-title">Arquitectura, rendimiento, entrega</h3>
-                        <p class="arch__panel-desc">
-                            Diseño de arquitecturas modulares bajo principios SOLID con separación estricta de responsabilidades. Implementación de concurrencia estructurada con Coroutines y Flow. Gestión preventiva de deuda técnica y documentación exhaustiva.
-                        </p>
-                        <div class="arch__panel-stats">
-                            <div class="stat">
-                                <span class="stat__value">5+</span>
-                                <span class="stat__label">Años experiencia</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__value">7</span>
-                                <span class="stat__label">Proyectos</span>
-                            </div>
-                        </div>
-                        <div class="arch__panel-tags">
-                            <span class="arch__tag">Clean Architecture</span>
-                            <span class="arch__tag">SOLID</span>
-                            <span class="arch__tag">Domain-Driven Design</span>
-                            <span class="arch__tag">Security by Design</span>
-                            <span class="arch__tag">Offline-First</span>
+                        <div class="profile-stat">
+                            <span class="stat-number">7</span>
+                            <span class="stat-text">Proyectos</span>
                         </div>
                     </div>
+                    <div class="profile-tags">
+                        <span class="profile-tag">Clean Architecture</span>
+                        <span class="profile-tag">SOLID</span>
+                        <span class="profile-tag">DDD</span>
+                        <span class="profile-tag">Offline-First</span>
+                    </div>
+                </div>
 
-                    <div class="arch__panel reveal reveal-delay-4">
-                        <div class="arch__panel-label arch__panel-label--pc">
-                            <span class="arch__panel-icon">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="8" x2="12" y2="12"></line>
-                                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                                </svg>
-                            </span>
-                            <span>Enfoque operativo</span>
+                <div class="profile-card" data-aos="fade-up" data-aos-delay="200">
+                    <span class="profile-label">Mi Forma de Trabajar</span>
+                    <h3 class="profile-title">Responsabilidad Integral</h3>
+                    <p class="profile-desc">
+                        Análisis profundo de dominio. Coordinación de persistencia, lógica e interfaz. CI/CD automatizado y monitorización continua.
+                    </p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">Compromiso</span>
                         </div>
-                        <h3 class="arch__panel-title">Responsabilidad integral del producto</h3>
-                        <p class="arch__panel-desc">
-                            Análisis profundo de dominio previo a la implementación. Coordinación de persistencia, lógica de negocio e interfaz. Decisiones documentadas con justificación técnica. CI/CD automatizado y monitorización continua.
-                        </p>
-                        <div class="arch__panel-stats">
-                            <div class="stat">
-                                <span class="stat__value">100%</span>
-                                <span class="stat__label">Compromiso</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat__value">0</span>
-                                <span class="stat__label">Deuda técnica</span>
-                            </div>
+                        <div class="profile-stat">
+                            <span class="stat-number">0</span>
+                            <span class="stat-text">Deuda técnica</span>
                         </div>
-                        <div class="arch__panel-tags">
-                            <span class="arch__tag">Ciclo completo</span>
-                            <span class="arch__tag">Documentación</span>
-                            <span class="arch__tag">CI/CD</span>
-                            <span class="arch__tag">Profiling</span>
-                            <span class="arch__tag">Agile</span>
-                        </div>
+                    </div>
+                    <div class="profile-tags">
+                        <span class="profile-tag">CI/CD</span>
+                        <span class="profile-tag">Agile</span>
+                        <span class="profile-tag">Profiling</span>
+                        <span class="profile-tag">Security</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════
-             EXPERIENCIA
-             ══════════════════════════════════════════ -->
-        <section class="section timeline-section" id="experiencia">
-            <div class="container">
-                <span class="section__label reveal">Trayectoria</span>
-                <h2 class="section__title reveal reveal-delay-1">Experiencia <span class="gradient-text">profesional</span></h2>
-                <p class="section__subtitle reveal reveal-delay-2">
-                    Evolución constante en el desarrollo de software, desde aplicaciones móviles hasta sistemas empresariales complejos.
-                </p>
+        <!-- EXPERIENCIA: Clean Timeline -->
+        <section class="section-experience" id="experiencia">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Mi Trayectoria</span>
+                <h2 class="section-title">Experiencia <span class="gradient-text">Profesional</span></h2>
+            </div>
 
-                <div class="timeline">
-                    <div class="timeline__item reveal reveal-delay-3">
-                        <div class="timeline__marker"></div>
-                        <div class="timeline__content">
-                            <span class="timeline__period">2023 — Presente</span>
-                            <h3 class="timeline__title">Arquitecto de Software</h3>
-                            <p class="timeline__company">Desarrollo Independiente</p>
-                            <p class="timeline__desc">Diseño e implementación de arquitecturas escalables para aplicaciones Android y sistemas de escritorio. Especialización en Clean Architecture y Domain-Driven Design.</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item reveal reveal-delay-4">
-                        <div class="timeline__marker"></div>
-                        <div class="timeline__content">
-                            <span class="timeline__period">2021 — 2023</span>
-                            <h3 class="timeline__title">Desarrollador Android Senior</h3>
-                            <p class="timeline__company">Proyectos Especializados</p>
-                            <p class="timeline__desc">Desarrollo de aplicaciones nativas con Jetpack Compose, implementación de arquitecturas MVVM y MVI, optimización de rendimiento y experiencia de usuario.</p>
-                        </div>
-                    </div>
-                    <div class="timeline__item reveal reveal-delay-5">
-                        <div class="timeline__marker"></div>
-                        <div class="timeline__content">
-                            <span class="timeline__period">2019 — 2021</span>
-                            <h3 class="timeline__title">Desarrollador de Software</h3>
-                            <p class="timeline__company">Inicio de trayectoria</p>
-                            <p class="timeline__desc">Formación sólida en principios de programación, patrones de diseño y metodologías ágiles. Desarrollo de proyectos personales y colaborativos.</p>
-                        </div>
-                    </div>
+            <div class="timeline-clean">
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="timeline-period">2023 — Presente</span>
+                    <h3 class="timeline-role">Arquitecto de Software</h3>
+                    <p class="timeline-company">Desarrollo Independiente</p>
+                    <p class="timeline-desc">Arquitecturas escalables para Android y sistemas de escritorio. Clean Architecture y Domain-Driven Design.</p>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="timeline-period">2021 — 2023</span>
+                    <h3 class="timeline-role">Android Senior</h3>
+                    <p class="timeline-company">Proyectos Especializados</p>
+                    <p class="timeline-desc">Jetpack Compose, arquitecturas MVVM/MVI, optimización de rendimiento.</p>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="timeline-period">2019 — 2021</span>
+                    <h3 class="timeline-role">Desarrollador de Software</h3>
+                    <p class="timeline-company">Inicio de Trayectoria</p>
+                    <p class="timeline-desc">Formación en principios SOLID, patrones de diseño y metodologías ágiles.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════
-             PROYECTOS DESTACADOS
-             ══════════════════════════════════════════ -->
-        <section class="section projects-section" id="proyectos">
-            <div class="container">
-                <span class="section__label reveal">Portafolio</span>
-                <h2 class="section__title reveal reveal-delay-1">Proyectos <span class="gradient-text">destacados</span></h2>
-                <p class="section__subtitle reveal reveal-delay-2">
-                    Selección de trabajos que representan mi enfoque en arquitectura limpia, rendimiento y experiencia de usuario.
-                </p>
+        <!-- PROYECTOS: Minimal Portfolio -->
+        <section class="section-projects" id="proyectos">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Mi Portafolio</span>
+                <h2 class="section-title">Proyectos que he <span class="gradient-text">Creado</span></h2>
+            </div>
 
-                <div class="projects__grid">
-                    <article class="project-card project-card--featured reveal reveal-delay-3">
-                        <div class="project-card__image">
-                            <div class="project-card__placeholder">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                                </svg>
-                            </div>
-                            <div class="project-card__overlay"></div>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="project-card__meta">
-                                <span class="project-card__category">Android Nativo</span>
-                                <span class="project-card__year">2024</span>
-                            </div>
-                            <h3 class="project-card__title">Sistema de Gestión Modular</h3>
-                            <p class="project-card__desc">Aplicación empresarial con arquitectura Clean, sincronización offline-first y UI adaptativa con Jetpack Compose.</p>
-                            <div class="project-card__tags">
-                                <span>Kotlin</span>
-                                <span>Jetpack Compose</span>
-                                <span>Room</span>
-                            </div>
-                        </div>
-                    </article>
+            <div class="projects-grid">
+                <article class="project-card project-card--featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-meta">
+                        <span class="project-category">Android Nativo</span>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <h3 class="project-title">Sistema de Gestión Modular</h3>
+                    <p class="project-desc">Aplicación empresarial con arquitectura Clean, sincronización offline-first y UI adaptativa.</p>
+                    <div class="project-tags">
+                        <span>Kotlin</span>
+                        <span>Jetpack Compose</span>
+                        <span>Room</span>
+                    </div>
+                </article>
 
-                    <article class="project-card reveal reveal-delay-4">
-                        <div class="project-card__image">
-                            <div class="project-card__placeholder project-card__placeholder--violet">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                </svg>
-                            </div>
-                            <div class="project-card__overlay"></div>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="project-card__meta">
-                                <span class="project-card__category">Desktop</span>
-                                <span class="project-card__year">2024</span>
-                            </div>
-                            <h3 class="project-card__title">Framework de Automatización</h3>
-                            <p class="project-card__desc">Sistema de automatización de procesos con arquitectura plugin-based y interfaz moderna.</p>
-                            <div class="project-card__tags">
-                                <span>Python</span>
-                                <span>Flet</span>
-                                <span>SQLite</span>
-                            </div>
-                        </div>
-                    </article>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-meta">
+                        <span class="project-category">Desktop</span>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <h3 class="project-title">Framework de Automatización</h3>
+                    <p class="project-desc">Sistema plugin-based con arquitectura extensible y interfaz moderna.</p>
+                    <div class="project-tags">
+                        <span>Python</span>
+                        <span>Flet</span>
+                        <span>SQLite</span>
+                    </div>
+                </article>
 
-                    <article class="project-card reveal reveal-delay-5">
-                        <div class="project-card__image">
-                            <div class="project-card__placeholder project-card__placeholder--cyan">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                            </div>
-                            <div class="project-card__overlay"></div>
-                        </div>
-                        <div class="project-card__content">
-                            <div class="project-card__meta">
-                                <span class="project-card__category">Seguridad</span>
-                                <span class="project-card__year">2023</span>
-                            </div>
-                            <h3 class="project-card__title">Suite de Seguridad</h3>
-                            <p class="project-card__desc">Herramientas de auditoría y análisis de seguridad con enfoque en ciberseguridad educativa.</p>
-                            <div class="project-card__tags">
-                                <span>Kotlin</span>
-                                <span>Python</span>
-                                <span>Crypto</span>
-                            </div>
-                        </div>
-                    </article>
+                <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-meta">
+                        <span class="project-category">Seguridad</span>
+                        <span class="project-year">2023</span>
+                    </div>
+                    <h3 class="project-title">Suite de Seguridad</h3>
+                    <p class="project-desc">Herramientas de auditoría y análisis con enfoque en ciberseguridad.</p>
+                    <div class="project-tags">
+                        <span>Kotlin</span>
+                        <span>Python</span>
+                        <span>Crypto</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- SERVICIOS: Expertise Grid -->
+        <section class="section-services" id="servicios">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">En lo que me especializo</span>
+                <h2 class="section-title">Áreas que <span class="gradient-text">domino</span></h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-item" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="service-title">Arquitectura</h3>
+                    <p class="service-desc">Clean Architecture, DDD, patrones enterprise</p>
+                </div>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="150">
+                    <h3 class="service-title">Android</h3>
+                    <p class="service-desc">Kotlin, Jetpack Compose, nativo</p>
+                </div>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="service-title">Backend</h3>
+                    <p class="service-desc">Python, APIs REST, sistemas distribuidos</p>
+                </div>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="250">
+                    <h3 class="service-title">Seguridad</h3>
+                    <p class="service-desc">Security by Design, criptografía</p>
+                </div>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="service-title">Consultoría</h3>
+                    <p class="service-desc">Code reviews, optimización, mentoring</p>
+                </div>
+                <div class="service-item" data-aos="fade-up" data-aos-delay="350">
+                    <h3 class="service-title">DevOps</h3>
+                    <p class="service-desc">CI/CD, pipelines, monitorización</p>
                 </div>
             </div>
         </section>
 
-        <!-- ══════════════════════════════════════════
-             SERVICIOS / ESPECIALIDADES
-             ══════════════════════════════════════════ -->
-        <section class="section services-section" id="servicios">
-            <div class="container">
-                <span class="section__label reveal">Servicios</span>
-                <h2 class="section__title reveal reveal-delay-1">Áreas de <span class="gradient-text">especialización</span></h2>
-                <p class="section__subtitle reveal reveal-delay-2">
-                    Ofrezco soluciones integrales en desarrollo de software, desde la arquitectura hasta la implementación y despliegue.
-                </p>
-
-                <div class="services__grid">
-                    <div class="service-card reveal reveal-delay-1">
-                        <div class="service-card__icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                                <rect x="9" y="9" width="6" height="6"></rect>
-                                <line x1="9" y1="1" x2="9" y2="4"></line>
-                                <line x1="15" y1="1" x2="15" y2="4"></line>
-                                <line x1="9" y1="20" x2="9" y2="23"></line>
-                                <line x1="15" y1="20" x2="15" y2="23"></line>
-                                <line x1="20" y1="9" x2="23" y2="9"></line>
-                                <line x1="20" y1="14" x2="23" y2="14"></line>
-                                <line x1="1" y1="9" x2="4" y2="9"></line>
-                                <line x1="1" y1="14" x2="4" y2="14"></line>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Arquitectura de Software</h3>
-                        <p class="service-card__desc">Diseño de arquitecturas escalables y mantenibles. Clean Architecture, Domain-Driven Design y patrones enterprise.</p>
-                    </div>
-
-                    <div class="service-card reveal reveal-delay-2">
-                        <div class="service-card__icon service-card__icon--violet">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                                <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Desarrollo Android</h3>
-                        <p class="service-card__desc">Apps nativas de alto rendimiento con Kotlin, Jetpack Compose y las últimas tecnologías de Google.</p>
-                    </div>
-
-                    <div class="service-card reveal reveal-delay-3">
-                        <div class="service-card__icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Sistemas Backend</h3>
-                        <p class="service-card__desc">Desarrollo de APIs REST, servicios cloud y sistemas distribuidos con Python y tecnologías modernas.</p>
-                    </div>
-
-                    <div class="service-card reveal reveal-delay-4">
-                        <div class="service-card__icon service-card__icon--violet">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Seguridad & Criptografía</h3>
-                        <p class="service-card__desc">Implementación de seguridad por diseño, cifrado de datos y auditoría de vulnerabilidades.</p>
-                    </div>
-
-                    <div class="service-card reveal reveal-delay-5">
-                        <div class="service-card__icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <line x1="2" y1="12" x2="22" y2="12"></line>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">Consultoría Técnica</h3>
-                        <p class="service-card__desc">Asesoramiento en decisiones arquitectónicas, code reviews y optimización de rendimiento.</p>
-                    </div>
-
-                    <div class="service-card reveal reveal-delay-6">
-                        <div class="service-card__icon service-card__icon--violet">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M18 20V10"></path>
-                                <path d="M12 20V4"></path>
-                                <path d="M6 20v-6"></path>
-                            </svg>
-                        </div>
-                        <h3 class="service-card__title">DevOps & CI/CD</h3>
-                        <p class="service-card__desc">Automatización de pipelines, despliegue continuo y monitorización de sistemas en producción.</p>
-                    </div>
-                </div>
+        <!-- STACK: Technology Infrastructure -->
+        <section class="section-stack" id="stack">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-label">Mis Herramientas</span>
+                <h2 class="section-title">El stack que <span class="gradient-text">utilizo</span></h2>
             </div>
-        </section>
 
-        <!-- ══════════════════════════════════════════
-             TECNOLOGÍAS
-             ══════════════════════════════════════════ -->
-        <section class="section stack" id="stack">
-            <div class="container">
-                <span class="section__label reveal">Infraestructura técnica</span>
-                <h2 class="section__title reveal reveal-delay-1">Stack de <span class="gradient-text">producción</span></h2>
-                <p class="section__subtitle reveal reveal-delay-2">
-                    Tecnologías seleccionadas por rendimiento comprobable y estabilidad a largo plazo.
-                </p>
-
-                <div class="stack__grid">
-                    <div class="stack__col reveal reveal-delay-3">
-                        <div class="stack__col-header">
-                            <div class="stack__col-icon stack__col-icon--android">📱</div>
-                            <div>
-                                <div class="stack__col-name">Android Nativo</div>
-                                <div class="stack__col-platform">Plataforma móvil principal</div>
-                            </div>
-                        </div>
-                        <div class="stack__items">
-                            <div class="stack__item">
-                                <span class="stack__item-name">Kotlin</span>
-                                <span class="stack__item-version">v2.1.x</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">Jetpack Compose</span>
-                                <span class="stack__item-version">BOM 2026.x</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">Coroutines / Flow</span>
-                                <span class="stack__item-version">Concurrencia estructurada</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">Material Design 3</span>
-                                <span class="stack__item-version">Dynamic Color</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">Room + Cifrado</span>
-                                <span class="stack__item-version">SQLCipher</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">Android Gradle Plugin</span>
-                                <span class="stack__item-version">v9.0</span>
-                            </div>
+            <div class="stack-grid">
+                <div class="stack-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stack-header">
+                        <span class="stack-icon">📱</span>
+                        <div>
+                            <h3 class="stack-name">Android</h3>
+                            <p class="stack-platform">Nativo</p>
                         </div>
                     </div>
+                    <ul class="stack-list">
+                        <li><span>Kotlin</span><span>v2.1.x</span></li>
+                        <li><span>Jetpack Compose</span><span>BOM 2026</span></li>
+                        <li><span>Coroutines / Flow</span><span>Async</span></li>
+                        <li><span>Material 3</span><span>Dynamic</span></li>
+                        <li><span>Room + Cipher</span><span>Security</span></li>
+                    </ul>
+                </div>
 
-                    <div class="stack__col reveal reveal-delay-4">
-                        <div class="stack__col-header">
-                            <div class="stack__col-icon stack__col-icon--pc">💻</div>
-                            <div>
-                                <div class="stack__col-name">Escritorio</div>
-                                <div class="stack__col-platform">Framework multiplataforma</div>
-                            </div>
-                        </div>
-                        <div class="stack__items">
-                            <div class="stack__item">
-                                <span class="stack__item-name">Python</span>
-                                <span class="stack__item-version">v3.12</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">Flet (Flutter Desktop)</span>
-                                <span class="stack__item-version">v0.27.3</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">SQLite3</span>
-                                <span class="stack__item-version">Embebido</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">ContentEngine</span>
-                                <span class="stack__item-version">Desarrollo propio</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">DatabaseManager</span>
-                                <span class="stack__item-version">Desarrollo propio</span>
-                            </div>
-                            <div class="stack__item">
-                                <span class="stack__item-name">Arquitectura Modular</span>
-                                <span class="stack__item-version">8 Unidades</span>
-                            </div>
+                <div class="stack-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stack-header">
+                        <span class="stack-icon">💻</span>
+                        <div>
+                            <h3 class="stack-name">Escritorio</h3>
+                            <p class="stack-platform">Multiplataforma</p>
                         </div>
                     </div>
+                    <ul class="stack-list">
+                        <li><span>Python</span><span>v3.12</span></li>
+                        <li><span>Flet</span><span>v0.27</span></li>
+                        <li><span>SQLite3</span><span>Core</span></li>
+                        <li><span>ContentEngine</span><span>Propietario</span></li>
+                        <li><span>DatabaseManager</span><span>Propietario</span></li>
+                    </ul>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- CONTACTO -->
-    <footer class="footer" id="contacto">
-        <div class="container">
-            <div class="footer__grid">
-                <div class="footer__brand">
-                    <div class="footer__brand-name">
-                        <span class="gradient-text">Yoangel Gómez</span>
-                    </div>
-                    <p class="footer__brand-desc">
-                        Arquitecto de Software especializado en Android nativo, sistemas escalables y arquitectura limpia. Convirtiendo ideas en productos digitales robustos.
-                    </p>
-                    <div class="footer__social">
-                        <a href="https://github.com/LiebeBlack" target="_blank" rel="noopener" aria-label="GitHub">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                            </svg>
-                        </a>
-                        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
-                        <a href="mailto:contact@yoangelgomez.dev" aria-label="Email">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer__col">
-                    <div class="footer__col-title">Navegación</div>
-                    <div class="footer__links">
-                        <a href="#perfil" class="footer__link">
-                            Perfil Profesional
-                            <span class="footer__link-arrow">→</span>
-                        </a>
-                        <a href="#experiencia" class="footer__link">
-                            Experiencia
-                            <span class="footer__link-arrow">→</span>
-                        </a>
-                        <a href="#proyectos" class="footer__link">
-                            Proyectos
-                            <span class="footer__link-arrow">→</span>
-                        </a>
-                        <a href="#stack" class="footer__link">
-                            Stack Tecnológico
-                            <span class="footer__link-arrow">→</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer__col">
-                    <div class="footer__col-title">Contacto</div>
-                    <div class="footer__links">
-                        <a href="https://github.com/LiebeBlack" target="_blank" rel="noopener" class="footer__link">
-                            GitHub
-                            <span class="footer__link-arrow">→</span>
-                        </a>
-                        <a href="#" class="footer__link">
-                            LinkedIn
-                            <span class="footer__link-arrow">→</span>
-                        </a>
-                        <a href="mailto:contact@yoangelgomez.dev" class="footer__link">
-                            Email Directo
-                            <span class="footer__link-arrow">→</span>
-                        </a>
-                    </div>
-                </div>
+    <!-- FOOTER: Absolute Minimalism -->
+    <footer class="footer-contact" id="contacto">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/LiebeBlack/" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <a href="mailto:contact@yoangelgomez.dev" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
             </div>
-
-            <div class="footer__bottom">
-                <span class="footer__copy">© 2026 Yoangel Gómez — Todos los derechos reservados.</span>
-                <span class="footer__version">v4.0 Aurora</span>
-            </div>
+            <p class="footer-copyright">Yoangel Gómez · 2026</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100,
+                    easing: 'ease-out-expo'
+                });
+            }
+        });
+    </script>
 </body>
+
 </html>
