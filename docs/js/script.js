@@ -66,26 +66,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     // ═══════════════════════════════════════
-    // 4. OPTIMIZED SCROLL REVEAL
+    // 4. PREMIUM SCROLL REVEAL (Scale + Fade)
     // ═══════════════════════════════════════
     const reveals = document.querySelectorAll('.reveal');
 
     if (reveals.length > 0) {
         const revealObserver = new IntersectionObserver(
             (entries) => {
-                for (let i = 0; i < entries.length; i++) {
-                    if (entries[i].isIntersecting) {
-                        entries[i].target.classList.add('visible');
-                        revealObserver.unobserve(entries[i].target);
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        revealObserver.unobserve(entry.target);
                     }
-                }
+                });
             },
-            { threshold: 0.06, rootMargin: '0px 0px -30px 0px' }
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
         );
 
-        for (let i = 0; i < reveals.length; i++) {
-            revealObserver.observe(reveals[i]);
-        }
+        reveals.forEach((el) => revealObserver.observe(el));
+    }
+
+    // ═══════════════════════════════════════
+    // 5. MAGNETIC EFFECT (Premium Interaction)
+    // ═══════════════════════════════════════
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+        const magneticElements = document.querySelectorAll('.nav__cta, .hero__cta, .nav__theme-toggle, .footer__social a');
+        
+        magneticElements.forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                el.style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = `translate3d(0, 0, 0)`;
+            });
+        });
     }
 
     // ═══════════════════════════════════════
@@ -178,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ═══════════════════════════════════════
     const typeEl = document.querySelector('.typewriter');
     if (typeEl) {
-        const phrases = ['Arquitecto de Software', 'Android Developer', 'Kotlin Expert', 'Clean Architecture'];
+        const phrases = ['Arquitecto de Software', 'Desarrollador Android', 'Experto en Kotlin', 'Arquitectura Limpia'];
         let idx = 0, charIdx = 0, deleting = false, lastTime = 0;
 
         const type = (timestamp) => {
@@ -205,70 +224,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ═══════════════════════════════════════
-    // 8. SECURITY & COPY PROTECTION
+    // 8. PERFORMANCE: PRE-FETCH CONTACT PAGE
     // ═══════════════════════════════════════
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('copy', e => {
-        e.preventDefault();
-        e.clipboardData?.setData('text/plain', '');
+    const prefetchContact = () => {
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = 'contacto.html';
+        document.head.appendChild(link);
+    };
+
+    const contactLinks = document.querySelectorAll('a[href="contacto.html"]');
+    contactLinks.forEach(link => {
+        link.addEventListener('mouseenter', prefetchContact, { once: true });
+        link.addEventListener('touchstart', prefetchContact, { once: true, passive: true });
     });
-    document.addEventListener('keydown', e => {
-        if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) {
-            e.preventDefault();
-        }
-    });
 
     // ═══════════════════════════════════════
-    // 9. MODERN MINIMALIST CUSTOM CURSOR
+    // 9. FINAL INITIALIZATION
     // ═══════════════════════════════════════
-    if (window.matchMedia('(pointer: fine)').matches) {
-        const cursor = document.querySelector('.custom-cursor');
-        const cursorGlow = document.querySelector('.custom-cursor-glow');
-        
-        if (cursor && cursorGlow) {
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-            let glowX = mouseX;
-            let glowY = mouseY;
-            
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            }, { passive: true });
-
-            const animateCursor = () => {
-                // Smooth interpolation for the glow
-                glowX += (mouseX - glowX) * 0.18;
-                glowY += (mouseY - glowY) * 0.18;
-                
-                // Direct translation using transform
-                // Fixed centering using translate(-50%, -50%) from CSS + dynamic position
-                cursor.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
-                cursorGlow.style.transform = `translate3d(calc(${glowX}px - 50%), calc(${glowY}px - 50%), 0)`;
-                
-                requestAnimationFrame(animateCursor);
-            };
-            requestAnimationFrame(animateCursor);
-
-            // Hover effects for interactive elements
-            const interactables = document.querySelectorAll('a, button, .project-card, .service-card, .arch__panel, .nav__toggle, .nav__theme-toggle');
-            interactables.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorGlow.classList.add('hover');
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorGlow.classList.remove('hover');
-                });
-            });
-            
-            // Re-apply hover listeners occasionally to support dynamically added elements if needed
-            // But since this is a static site, running once is sufficient.
-        }
-    }
+    document.documentElement.style.cursor = 'auto';
 
     // Console
-    console.log('%c⚡ Yoangel Gómez Portfolio v5.0 — GPU Optimized', 'color: hsl(185, 90%, 45%); font-weight: bold;');
+    console.log('%c⚡ Yoangel Gómez Portfolio v5.0 — GPU Optimized & Pre-fetched', 'color: hsl(185, 90%, 45%); font-weight: bold;');
 });
