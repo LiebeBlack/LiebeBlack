@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
             easing: 'cubic-bezier(0.2, 1, 0.2, 1)',
             once: true
         });
+    } else {
+        document.querySelectorAll('[data-aos]').forEach(el => el.removeAttribute('data-aos'));
     }
 
     // Preloader Handling
@@ -90,6 +92,25 @@ document.addEventListener('DOMContentLoaded', () => {
             navInner.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
         }
     });
+
+    // 4. Mobile Nav Toggle
+    const navLinks = document.getElementById('nav-links');
+    const navToggle = document.getElementById('nav-toggle');
+
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') && !nav?.contains(e.target)) {
+                navLinks.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+    }
 
     // 5. Performance: Predictive Pre-fetching
     const prefetchHome = () => {

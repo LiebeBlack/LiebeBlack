@@ -12,6 +12,7 @@
     <meta property="og:title" content="Yoangel Gómez — Arquitecto de Software">
     <meta property="og:description" content="Arquitecto de Software especializado en Android nativo y sistemas escalables. Kotlin, Python, Clean Architecture.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://yoangelgomez.dev/img/avatar_premium.png">
     
     <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +23,7 @@
     <link rel="preload" href="img/avatar.png" as="image" fetchpriority="high">
 
     <!-- Styles & Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="css/aos.css" rel="stylesheet">
     
     <style>
         :root {
@@ -103,7 +104,7 @@
         document.documentElement.setAttribute('data-theme', 'dark');
     </script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="js/aos.js" defer></script>
 </head>
 
 <body class="main-page">
@@ -115,13 +116,16 @@
     <div id="preloader" class="preloader">
         <div class="preloader__ring"></div>
         <div class="preloader__logo">YG</div>
-        <span class="preloader__status">Sistemas Cargando</span>
+        <span class="preloader__status">Cargando Sistemas</span>
     </div>
 
     <!-- NAVIGATION: Minimalist Floating Pill -->
     <nav class="nav-contact" id="nav">
         <div class="nav-contact__inner">
-            <ul class="nav-contact__links">
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-contact__links" id="nav-links">
                 <li><a href="#perfil">Perfil</a></li>
                 <li><a href="#experiencia">Trayectoria</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
@@ -402,6 +406,10 @@
                     once: true,
                     offset: 100,
                     easing: 'ease-out-expo'
+                });
+            } else {
+                document.querySelectorAll('[data-aos]').forEach(function(el) {
+                    el.removeAttribute('data-aos');
                 });
             }
         });

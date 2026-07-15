@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ═══════════════════════════════════════
-    // 5. GPU PARALLAX (desktop only, optimized)
+    // 6. GPU PARALLAX (desktop only, optimized)
     // ═══════════════════════════════════════
     if (!window.matchMedia('(pointer: coarse)').matches) {
         const orbs = document.querySelectorAll('.ambient-orb');
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ═══════════════════════════════════════
-    // 6. SMOOTH SCROLL & MOBILE NAV
+    // 7. SMOOTH SCROLL & MOBILE NAV
     // ═══════════════════════════════════════
     const navLinks = document.getElementById('nav-links');
     const navToggle = document.getElementById('nav-toggle');
@@ -193,38 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ═══════════════════════════════════════
-    // 7. TYPEWRITER (optimized with RAF)
+    // 8. TYPEWRITER (REMOVED)
     // ═══════════════════════════════════════
-    const typeEl = document.querySelector('.typewriter');
-    if (typeEl) {
-        const phrases = ['Arquitecto de Software', 'Desarrollador Android', 'Experto en Kotlin', 'Arquitectura Limpia'];
-        let idx = 0, charIdx = 0, deleting = false, lastTime = 0;
-
-        const type = (timestamp) => {
-            const phrase = phrases[idx];
-            let speed = deleting ? 35 : 70;
-            if (!deleting && charIdx === phrase.length) speed = 1500;
-            else if (deleting && charIdx === 0) speed = 250;
-
-            if (timestamp - lastTime >= speed) {
-                lastTime = timestamp;
-                typeEl.textContent = deleting
-                    ? phrase.substring(0, charIdx - 1)
-                    : phrase.substring(0, charIdx + 1);
-
-                if (deleting) charIdx--; else charIdx++;
-
-                if (!deleting && charIdx === phrase.length) deleting = true;
-                else if (deleting && charIdx === 0) { deleting = false; idx = (idx + 1) % phrases.length; }
-            }
-            requestAnimationFrame(type);
-        };
-
-        setTimeout(() => requestAnimationFrame(type), 600);
-    }
 
     // ═══════════════════════════════════════
-    // 8. PERFORMANCE: PRE-FETCH CONTACT PAGE
+    // 9. PERFORMANCE: PRE-FETCH CONTACT PAGE
     // ═══════════════════════════════════════
     const prefetchContact = () => {
         const link = document.createElement('link');
@@ -240,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ═══════════════════════════════════════
-    // 9. FINAL INITIALIZATION
+    // 10. FINAL INITIALIZATION
     // ═══════════════════════════════════════
     document.documentElement.style.cursor = 'auto';
 

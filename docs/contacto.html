@@ -17,11 +17,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;1,300&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@100;300;600;900&display=swap" rel="stylesheet">
     
     <!-- Styles -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="css/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/contact.css">
     
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="js/aos.js" defer></script>
     <script src="js/contact.js" defer></script>
 </head>
 <body class="contact-page">
@@ -30,16 +30,19 @@
     <div id="preloader" class="preloader">
         <div class="preloader__ring"></div>
         <div class="preloader__logo">YG</div>
-        <span class="preloader__status">Sistemas Cargando</span>
+        <span class="preloader__status">Cargando Sistemas</span>
     </div>
 
     <!-- Ambient Architecture -->
     <div class="ambient-glow" aria-hidden="true"></div>
 
     <!-- Navbar: Minimalist Precision -->
-    <nav class="nav-contact">
+    <nav class="nav-contact" id="nav">
         <div class="nav-contact__inner">
-            <ul class="nav-contact__links">
+            <div class="nav__toggle" id="nav-toggle">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-contact__links" id="nav-links">
                 <li><a href="index.html#perfil">Perfil</a></li>
                 <li><a href="index.html#experiencia">Trayectoria</a></li>
                 <li><a href="index.html#proyectos">Proyectos</a></li>
