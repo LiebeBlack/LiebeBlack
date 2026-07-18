@@ -40,9 +40,33 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => preloader.remove(), 600);
         };
 
-        let loaded = false, timerDone = false;
-        window.addEventListener('load', () => { loaded = true; if (timerDone) hide(); });
-        setTimeout(() => { timerDone = true; if (loaded) hide(); else hide(); }, 1200);
+        let loaded = false;
+        const minimumDisplayTime = 4000; // Minimum 2 seconds display for aesthetic
+        const startTime = Date.now();
+
+        const attemptHide = () => {
+            if (loaded && (Date.now() - startTime) >= minimumDisplayTime) {
+                hide();
+            } else if (loaded) {
+                // If loaded but min time not met, wait the remaining time
+                setTimeout(hide, minimumDisplayTime - (Date.now() - startTime));
+            }
+        };
+
+        window.addEventListener('load', () => {
+            loaded = true;
+            attemptHide();
+        });
+
+        // Fallback: If window.onload doesn't fire for some reason, hide after a longer timeout
+        setTimeout(() => {
+            if (!loaded) {
+                hide();
+            }
+        }, 5000); // 5 seconds fallback
+
+        // Also ensure preloader hides after minimum time if page loads very fast
+        setTimeout(attemptHide, minimumDisplayTime);
     }
 
     // ═══════════════════════════════════════
@@ -158,10 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ═══════════════════════════════════════
-    // 7. SMOOTH SCROLL & MOBILE NAV
+    // 7. SMOOTH SCROLL
     // ═══════════════════════════════════════
     const navLinks = document.getElementById('nav-links');
-    const navToggle = document.getElementById('nav-toggle');
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
@@ -171,26 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                navLinks?.classList.remove('active');
-                navToggle?.classList.remove('active');
             }
         });
     });
-
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (navLinks.classList.contains('active') && !nav?.contains(e.target)) {
-                navLinks.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        });
-    }
 
     // ═══════════════════════════════════════
     // 8. TYPEWRITER (REMOVED)
