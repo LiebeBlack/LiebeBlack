@@ -4,25 +4,61 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. AOS Initialization with Refined Timing
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 1200,
-            easing: 'cubic-bezier(0.2, 1, 0.2, 1)',
-            once: true
-        });
-    } else {
-        document.querySelectorAll('[data-aos]').forEach(el => el.removeAttribute('data-aos'));
-    }
+    // 1. Native Scroll Animation Engine
+    const initScrollAnimations = () => {
+        const animElements = document.querySelectorAll('[data-aos]');
+        if (!animElements.length) return;
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('aos-animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            animElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0) {
+                    el.classList.add('aos-animate');
+                } else {
+                    observer.observe(el);
+                }
+            });
+        } else {
+            animElements.forEach(el => el.classList.add('aos-animate'));
+        }
+    };
+
+    initScrollAnimations();
+    window.addEventListener('load', initScrollAnimations);
 
     // Preloader Handling
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        window.addEventListener('load', () => {
+        const hide = () => {
+            if (preloader.classList.contains('hidden')) return;
+            preloader.classList.add('hidden');
+            initScrollAnimations();
             setTimeout(() => {
-                preloader.classList.add('hidden');
-            }, 500);
-        });
+                if (preloader.parentNode) preloader.remove();
+                initScrollAnimations();
+            }, 400);
+        };
+
+        if (document.readyState === 'complete') {
+            setTimeout(hide, 250);
+        } else {
+            window.addEventListener('load', () => {
+                setTimeout(hide, 250);
+            });
+        }
+        setTimeout(hide, 1500);
     }
 
     // 2. Formspree High-End Integration

@@ -1,228 +1,156 @@
 /**
  * Yoangel Gómez — Portfolio v5.0
- * Performance-Optimized · GPU-Accelerated · Minimal Paint
+ * Resilient Animation Engine & Clean Interactions
  */
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
     // ═══════════════════════════════════════
-    // 1. THEME TOGGLE
-    // ═══════════════════════════════════════
-    const theme = {
-        current: 'dark',
-        toggleBtn: document.getElementById('theme-toggle'),
-
-        init() {
-            this.apply('dark');
-            this.toggleBtn?.addEventListener('click', () => this.switch());
-        },
-
-        apply(mode) {
-            document.documentElement.setAttribute('data-theme', mode);
-            this.current = mode;
-            const metaColor = document.querySelector('meta[name="theme-color"]');
-            if (metaColor) metaColor.content = mode === 'dark' ? '#0a0a0f' : '#f8f9fa';
-        },
-
-        switch() {
-            this.apply(this.current === 'light' ? 'dark' : 'light');
-        }
-    };
-    theme.init();
-
-    // ═══════════════════════════════════════
-    // 2. FAST PRELOADER (1.2s max)
+    // 1. FAST, RESILIENT PRELOADER
     // ═══════════════════════════════════════
     const preloader = document.getElementById('preloader');
-    if (preloader) {
-        const hide = () => {
-            preloader.classList.add('hidden');
-            setTimeout(() => preloader.remove(), 600);
-        };
-
-        let loaded = false;
-        const minimumDisplayTime = 4000; // Minimum 2 seconds display for aesthetic
-        const startTime = Date.now();
-
-        const attemptHide = () => {
-            if (loaded && (Date.now() - startTime) >= minimumDisplayTime) {
-                hide();
-            } else if (loaded) {
-                // If loaded but min time not met, wait the remaining time
-                setTimeout(hide, minimumDisplayTime - (Date.now() - startTime));
-            }
-        };
-
-        window.addEventListener('load', () => {
-            loaded = true;
-            attemptHide();
-        });
-
-        // Fallback: If window.onload doesn't fire for some reason, hide after a longer timeout
+    
+    const dismissPreloader = () => {
+        if (!preloader || preloader.classList.contains('hidden')) return;
+        preloader.classList.add('hidden');
+        initScrollAnimations();
         setTimeout(() => {
-            if (!loaded) {
-                hide();
+            if (preloader.parentNode) {
+                preloader.remove();
             }
-        }, 5000); // 5 seconds fallback
+            initScrollAnimations();
+        }, 400);
+    };
 
-        // Also ensure preloader hides after minimum time if page loads very fast
-        setTimeout(attemptHide, minimumDisplayTime);
-    }
-
-    // ═══════════════════════════════════════
-    // 3. NAVBAR — RAF-throttled scroll
-    // ═══════════════════════════════════════
-    const nav = document.getElementById('nav');
-    let scrollTicking = false;
-
-    window.addEventListener('scroll', () => {
-        if (!scrollTicking) {
-            scrollTicking = true;
-            requestAnimationFrame(() => {
-                if (window.scrollY > 60) {
-                    nav?.classList.add('scrolled');
-                } else {
-                    nav?.classList.remove('scrolled');
-                }
-                scrollTicking = false;
+    if (preloader) {
+        if (document.readyState === 'complete') {
+            setTimeout(dismissPreloader, 250);
+        } else {
+            window.addEventListener('load', () => {
+                setTimeout(dismissPreloader, 250);
             });
         }
-    }, { passive: true });
-
-    // ═══════════════════════════════════════
-    // 4. PREMIUM SCROLL REVEAL (Scale + Fade)
-    // ═══════════════════════════════════════
-    const reveals = document.querySelectorAll('.reveal');
-
-    if (reveals.length > 0) {
-        const revealObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-        );
-
-        reveals.forEach((el) => revealObserver.observe(el));
+        // Safety timeout so preloader NEVER gets stuck
+        setTimeout(dismissPreloader, 1500);
     }
 
     // ═══════════════════════════════════════
-    // 5. MAGNETIC EFFECT (Premium Interaction)
+    // 2. RESILIENT NATIVE SCROLL ANIMATION ENGINE
+    // ═══════════════════════════════════════
+    const initScrollAnimations = () => {
+        const animElements = document.querySelectorAll('[data-aos]');
+        if (!animElements.length) return;
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('aos-animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.05,
+                rootMargin: '0px 0px -30px 0px'
+            });
+
+            animElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < (window.innerHeight || document.documentElement.clientHeight) && rect.bottom > 0) {
+                    el.classList.add('aos-animate');
+                } else {
+                    observer.observe(el);
+                }
+            });
+        } else {
+            animElements.forEach(el => el.classList.add('aos-animate'));
+        }
+    };
+
+    initScrollAnimations();
+    window.addEventListener('load', initScrollAnimations);
+
+    // ═══════════════════════════════════════
+    // 3. NAVBAR SCROLL EFFECT
+    // ═══════════════════════════════════════
+    const nav = document.getElementById('nav');
+    if (nav) {
+        let scrollTicking = false;
+        window.addEventListener('scroll', () => {
+            if (!scrollTicking) {
+                scrollTicking = true;
+                requestAnimationFrame(() => {
+                    if (window.scrollY > 40) {
+                        nav.classList.add('scrolled');
+                    } else {
+                        nav.classList.remove('scrolled');
+                    }
+                    scrollTicking = false;
+                });
+            }
+        }, { passive: true });
+    }
+
+    // ═══════════════════════════════════════
+    // 4. MAGNETIC BUTTONS & CARD SPOTLIGHT
     // ═══════════════════════════════════════
     if (!window.matchMedia('(pointer: coarse)').matches) {
-        const magneticElements = document.querySelectorAll('.nav__cta, .hero__cta, .nav__theme-toggle, .footer__social a');
-        
+        // Magnetic Buttons
+        const magneticElements = document.querySelectorAll('.btn-extreme, .project-link, .footer-links a');
         magneticElements.forEach(el => {
             el.addEventListener('mousemove', (e) => {
                 const rect = el.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-                
-                el.style.transform = `translate3d(${x * 0.3}px, ${y * 0.3}px, 0)`;
+                el.style.transform = `translate3d(${x * 0.18}px, ${y * 0.18}px, 0)`;
             });
-            
             el.addEventListener('mouseleave', () => {
                 el.style.transform = `translate3d(0, 0, 0)`;
             });
         });
-    }
 
-    // ═══════════════════════════════════════
-    // 6. GPU PARALLAX (desktop only, optimized)
-    // ═══════════════════════════════════════
-    if (!window.matchMedia('(pointer: coarse)').matches) {
-        const orbs = document.querySelectorAll('.ambient-orb');
-        if (orbs.length > 0) {
-            const pos = [], tgt = [];
-            const factors = [1, -0.6, 0.4];
-
-            for (let i = 0; i < orbs.length; i++) {
-                pos.push({ x: 0, y: 0 });
-                tgt.push({ x: 0, y: 0 });
-            }
-
-            document.addEventListener('mousemove', (e) => {
-                const nx = (e.clientX / window.innerWidth - 0.5) * 20;
-                const ny = (e.clientY / window.innerHeight - 0.5) * 20;
-                for (let i = 0; i < orbs.length; i++) {
-                    const f = factors[i] || 0.3;
-                    tgt[i].x = nx * f;
-                    tgt[i].y = ny * f;
-                }
-            }, { passive: true });
-
-            let animating = true;
-            const animate = () => {
-                if (!animating) return;
-                let moving = false;
-                for (let i = 0; i < orbs.length; i++) {
-                    const dx = tgt[i].x - pos[i].x;
-                    const dy = tgt[i].y - pos[i].y;
-                    if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
-                        pos[i].x += dx * 0.05;
-                        pos[i].y += dy * 0.05;
-                        orbs[i].style.transform = `translate3d(${pos[i].x}px,${pos[i].y}px,0)`;
-                        moving = true;
-                    }
-                }
-                requestAnimationFrame(animate);
-            };
-            animate();
-
-            // Pause when tab hidden
-            document.addEventListener('visibilitychange', () => {
-                animating = !document.hidden;
-                if (animating) animate();
+        // Interactive Card Spotlight Glow
+        const spotlightCards = document.querySelectorAll('.profile-card, .project-card, .service-item, .stack-col, .timeline-item');
+        spotlightCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
             });
-        }
+        });
     }
 
     // ═══════════════════════════════════════
-    // 7. SMOOTH SCROLL
+    // 5. SMOOTH IN-PAGE SCROLL
     // ═══════════════════════════════════════
-    const navLinks = document.getElementById('nav-links');
-
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
-            const id = anchor.getAttribute('href');
-            if (id === '#') return;
-            const target = document.querySelector(id);
-            if (target) {
+            const targetId = anchor.getAttribute('href');
+            if (targetId === '#' || !targetId) return;
+            const targetEl = document.querySelector(targetId);
+            if (targetEl) {
                 e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
 
     // ═══════════════════════════════════════
-    // 8. TYPEWRITER (REMOVED)
-    // ═══════════════════════════════════════
-
-    // ═══════════════════════════════════════
-    // 9. PERFORMANCE: PRE-FETCH CONTACT PAGE
+    // 6. PREDICTIVE PRE-FETCH (Contacto)
     // ═══════════════════════════════════════
     const prefetchContact = () => {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.href = 'contacto.html';
-        document.head.appendChild(link);
+        if (!document.querySelector('link[rel="prefetch"][href="contacto.html"]')) {
+            const link = document.createElement('link');
+            link.rel = 'prefetch';
+            link.href = 'contacto.html';
+            document.head.appendChild(link);
+        }
     };
 
-    const contactLinks = document.querySelectorAll('a[href="contacto.html"]');
-    contactLinks.forEach(link => {
+    document.querySelectorAll('a[href="contacto.html"]').forEach(link => {
         link.addEventListener('mouseenter', prefetchContact, { once: true });
         link.addEventListener('touchstart', prefetchContact, { once: true, passive: true });
     });
-
-    // ═══════════════════════════════════════
-    // 10. FINAL INITIALIZATION
-    // ═══════════════════════════════════════
-    document.documentElement.style.cursor = 'auto';
-
-    // Console
-    console.log('%c⚡ Yoangel Gómez Portfolio v5.0 — GPU Optimized & Pre-fetched', 'color: hsl(185, 90%, 45%); font-weight: bold;');
 });

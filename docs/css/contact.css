@@ -29,6 +29,19 @@
     --space-unit: 1rem;
 }
 
+/* Scroll Reveal Animation Engine */
+[data-aos] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Preloader Styles */
 .preloader {
     position: fixed;
@@ -433,25 +446,27 @@ textarea.form-input {
 .btn-extreme {
     width: 100%;
     padding: 1.25rem;
-    border: 1px solid #fff;
+    border: 1px solid rgba(0, 243, 255, 0.4);
     border-radius: 100px;
     font-family: var(--font-title);
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    background: transparent;
+    background: linear-gradient(135deg, rgba(0, 243, 255, 0.1), rgba(188, 19, 254, 0.1));
     color: #fff;
     margin-top: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 243, 255, 0.15);
 }
 
 .btn-extreme:hover {
-    background: #fff;
-    color: #000;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-violet));
+    color: #020203;
+    border-color: #ffffff;
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 243, 255, 0.35), 0 0 20px rgba(188, 19, 254, 0.25);
 }
 
 /* Footer: Minimal & Deep */
