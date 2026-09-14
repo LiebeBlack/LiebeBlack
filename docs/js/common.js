@@ -1,5 +1,5 @@
 /**
- * Yoangel Gómez — Shared Behaviors v8
+ * Yoangel Gómez — Shared Behaviors v13
  * Preloader, native reveal engine, nav scroll state + scroll-spy,
  * scroll progress bar and a shared page-prefetch helper.
  *
@@ -126,4 +126,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
     window.addEventListener('resize', update, { passive: true });
     update();
+
+    // 4. Lightweight pointer depth for capable devices.
+    if (!reduceMotion.matches && window.matchMedia('(pointer: fine)').matches) {
+        const interactive = document.querySelectorAll('.project-card, .service-item, .profile-card, .stack-col, .channel-card');
+
+        interactive.forEach((card) => {
+            card.addEventListener('pointermove', (event) => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--pointer-x', `${event.clientX - rect.left}px`);
+                card.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
+            });
+        });
+
+        document.documentElement.classList.add('pointer-depth');
+    }
 });
