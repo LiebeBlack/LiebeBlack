@@ -325,6 +325,46 @@ input[type="file"] {
         padding: 6.5rem 6% 3rem;
     }
 
+    /* ── Motion and interaction layer ─────────────── */
+    .contact-section { padding-top: 9rem; }
+    .contact-aside .title-extreme { font-size: clamp(2.6rem, 5vw, 4rem); letter-spacing: -0.05em; }
+    .contact-intro { font-size: 1.02rem; }
+    .contact-form-wrapper {
+        background: linear-gradient(145deg, rgba(21, 30, 42, .92), rgba(13, 18, 26, .86));
+        box-shadow: 0 24px 80px rgba(0, 0, 0, .2);
+    }
+    .channel-card { background: rgba(17, 23, 32, .58); }
+    .channel-card:hover { border-color: rgba(107, 213, 255, .36); }
+    .form-input { background: rgba(4, 8, 13, .28); border-color: rgba(183, 205, 232, .14); }
+    .form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(107, 213, 255, .1); }
+    .btn-extreme { background: var(--grad); }
+    .contact-form-wrapper::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.06), transparent 65%);
+        transform: translateX(-120%);
+        pointer-events: none;
+        animation: formSheen 9s ease-in-out infinite;
+    }
+
+    .contact-form-wrapper { position: relative; overflow: hidden; }
+    .contact-form-wrapper form { position: relative; z-index: 1; }
+
+    @keyframes formSheen {
+        0%, 55%, 100% { transform: translateX(-120%); }
+        75% { transform: translateX(120%); }
+    }
+
+    @media (max-width: 860px) {
+        .contact-section { padding-top: 8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .contact-form-wrapper::before { animation: none; }
+    }
+
     /* ── Editorial polish ─────────────────────────── */
     .contact-section { padding-top: 9rem; }
     .contact-aside .title-extreme { font-size: clamp(2.6rem, 5vw, 4rem); letter-spacing: -0.05em; }
