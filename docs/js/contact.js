@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fileInput.addEventListener('change', () => {
             const file = fileInput.files && fileInput.files[0];
             fileName.textContent = file
-                ? `Archivo adjunto: ${file.name}`
+                ? `Archivo adjunto: ${file.name} · ${(file.size / 1024 / 1024).toFixed(1)} MB`
                 : 'Adjuntar archivo (opcional)';
         });
     }

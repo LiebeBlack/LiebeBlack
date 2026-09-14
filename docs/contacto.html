@@ -26,8 +26,8 @@
             [data-aos] { opacity: 1 !important; transform: none !important; filter: none !important; }
         </style>
     </noscript>
-    <link rel="stylesheet" href="css/base.css?v=11.0">
-    <link rel="stylesheet" href="css/contact.css?v=11.0">
+    <link rel="stylesheet" href="css/base.css?v=12.0">
+    <link rel="stylesheet" href="css/contact.css?v=12.0">
 </head>
 <body class="contact-page">
 
@@ -102,11 +102,13 @@
                 <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="150">
                     <form id="contact-form" action="https://formspree.io/f/xpqopvkd" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_subject" value="Nueva consulta desde el portafolio — Yoangel Gómez">
+                        <p class="form-kicker">Cuéntame lo esencial</p>
+                        <p class="form-intro">Una primera descripción es suficiente para entender el alcance y responderte con los siguientes pasos.</p>
 
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name" class="form-label">Nombre</label>
-                                <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre o empresa" autocomplete="name" required>
+                                <input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre o empresa" autocomplete="name" required minlength="2">
                             </div>
 
                             <div class="form-group">
@@ -122,13 +124,14 @@
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
                                     <span id="file-name">Adjuntar archivo (opcional)</span>
                                 </label>
-                                <input type="file" id="file-upload" name="attachment">
+                                <input type="file" id="file-upload" name="attachment" accept=".pdf,.doc,.docx,.txt,.zip">
                             </div>
+                            <p class="form-hint">PDF, DOCX, TXT o ZIP · opcional</p>
                         </div>
 
                         <div class="form-group">
                             <label for="message" class="form-label">Detalles del proyecto</label>
-                            <textarea id="message" name="message" class="form-input" placeholder="Cuéntame el objetivo, los requerimientos técnicos o la consulta..." required></textarea>
+                            <textarea id="message" name="message" class="form-input" placeholder="Cuéntame el objetivo, los requerimientos técnicos o la consulta..." required minlength="20"></textarea>
                         </div>
 
                         <button type="submit" class="btn-extreme">
@@ -150,7 +153,7 @@
         </p>
     </footer>
 
-    <script src="js/common.js?v=11.0"></script>
-    <script src="js/contact.js?v=11.0"></script>
+    <script src="js/common.js?v=12.0"></script>
+    <script src="js/contact.js?v=12.0"></script>
 </body>
 </html>
