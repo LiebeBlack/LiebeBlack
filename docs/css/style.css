@@ -810,9 +810,105 @@ section[id] {
     /* ── Motion and interaction layer ─────────────── */
     .hero-contact {
         position: relative;
+        isolation: isolate;
         min-height: min(920px, 100svh);
         padding-top: 8.5rem;
     }
+
+    .hero-hud {
+        position: absolute;
+        inset: 7rem 3% 3rem;
+        z-index: -1;
+        border: 1px solid rgba(107, 213, 255, .08);
+        border-radius: 28px;
+        overflow: hidden;
+        pointer-events: none;
+        background:
+            linear-gradient(rgba(107, 213, 255, .035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(107, 213, 255, .035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+    }
+
+    .hero-hud::before,
+    .hero-hud::after {
+        content: '';
+        position: absolute;
+        inset: 15%;
+        border: 1px solid rgba(107, 213, 255, .08);
+        border-radius: 50%;
+        transform: rotate(-18deg) scaleX(1.4);
+    }
+
+    .hero-hud::after {
+        inset: 28% 22%;
+        border-color: rgba(167, 139, 250, .1);
+        transform: rotate(25deg) scaleX(1.5);
+    }
+
+    .hud-coordinate {
+        position: absolute;
+        z-index: 2;
+        color: rgba(183, 205, 232, .46);
+        font: 500 .56rem/1 var(--font-mono);
+        letter-spacing: .16em;
+    }
+
+    .hud-coordinate--top { top: 1.2rem; left: 1.4rem; }
+    .hud-coordinate--bottom { right: 1.4rem; bottom: 1.2rem; color: rgba(85, 214, 167, .62); }
+
+    .hud-scanline {
+        position: absolute;
+        inset: -20% 0 auto;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(107, 213, 255, .5), transparent);
+        box-shadow: 0 0 18px rgba(107, 213, 255, .3);
+        animation: hudScan 8s ease-in-out infinite;
+    }
+
+    .hud-target {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border: 1px solid rgba(107, 213, 255, .6);
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px rgba(107, 213, 255, .05);
+        animation: targetPulse 3.5s ease-in-out infinite;
+    }
+
+    .hud-target::before,
+    .hud-target::after {
+        content: '';
+        position: absolute;
+        background: var(--accent);
+        opacity: .65;
+    }
+
+    .hud-target::before { width: 28px; height: 1px; left: -6px; top: 8px; }
+    .hud-target::after { width: 1px; height: 28px; left: 8px; top: -6px; }
+    .hud-target--one { top: 24%; right: 18%; }
+    .hud-target--two { left: 17%; bottom: 24%; animation-delay: 1.3s; border-color: rgba(167, 139, 250, .65); }
+
+    .hud-crosshair {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 76px;
+        height: 76px;
+        border: 1px solid rgba(107, 213, 255, .13);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hud-crosshair::before,
+    .hud-crosshair::after {
+        content: '';
+        position: absolute;
+        background: rgba(107, 213, 255, .22);
+    }
+
+    .hud-crosshair::before { width: 110px; height: 1px; left: -18px; top: 37px; }
+    .hud-crosshair::after { width: 1px; height: 110px; left: 37px; top: -18px; }
 
     .hero-contact::before {
         content: '';
@@ -940,6 +1036,124 @@ section[id] {
         .hero-avatar-container, .gradient-text, .btn--primary, .btn-extreme {
             animation: none;
         }
+    }
+
+    /* ── HUD overlay: desktop-safe placement ──────── */
+    .hero-hud {
+        position: absolute;
+        inset: 7rem 3% 3rem;
+        z-index: -1;
+        border: 1px solid rgba(107, 213, 255, .08);
+        border-radius: 28px;
+        overflow: hidden;
+        pointer-events: none;
+        background:
+            linear-gradient(rgba(107, 213, 255, .035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(107, 213, 255, .035) 1px, transparent 1px);
+        background-size: 48px 48px;
+        mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+    }
+
+    .hero-hud::before,
+    .hero-hud::after {
+        content: '';
+        position: absolute;
+        inset: 15%;
+        border: 1px solid rgba(107, 213, 255, .08);
+        border-radius: 50%;
+        transform: rotate(-18deg) scaleX(1.4);
+    }
+
+    .hero-hud::after {
+        inset: 28% 22%;
+        border-color: rgba(167, 139, 250, .1);
+        transform: rotate(25deg) scaleX(1.5);
+    }
+
+    .hud-coordinate {
+        position: absolute;
+        z-index: 2;
+        color: rgba(183, 205, 232, .46);
+        font: 500 .56rem/1 var(--font-mono);
+        letter-spacing: .16em;
+    }
+
+    .hud-coordinate--top { top: 1.2rem; left: 1.4rem; }
+    .hud-coordinate--bottom { right: 1.4rem; bottom: 1.2rem; color: rgba(85, 214, 167, .62); }
+    .hud-scanline {
+        position: absolute;
+        inset: -20% 0 auto;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(107, 213, 255, .5), transparent);
+        box-shadow: 0 0 18px rgba(107, 213, 255, .3);
+        animation: hudScan 8s ease-in-out infinite;
+    }
+
+    .hud-target {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border: 1px solid rgba(107, 213, 255, .6);
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px rgba(107, 213, 255, .05);
+        animation: targetPulse 3.5s ease-in-out infinite;
+    }
+
+    .hud-target::before,
+    .hud-target::after {
+        content: '';
+        position: absolute;
+        background: var(--accent);
+        opacity: .65;
+    }
+
+    .hud-target::before { width: 28px; height: 1px; left: -6px; top: 8px; }
+    .hud-target::after { width: 1px; height: 28px; left: 8px; top: -6px; }
+    .hud-target--one { top: 24%; right: 18%; }
+    .hud-target--two { left: 17%; bottom: 24%; animation-delay: 1.3s; border-color: rgba(167, 139, 250, .65); }
+    .hud-crosshair {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 76px;
+        height: 76px;
+        border: 1px solid rgba(107, 213, 255, .13);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hud-crosshair::before,
+    .hud-crosshair::after {
+        content: '';
+        position: absolute;
+        background: rgba(107, 213, 255, .22);
+    }
+
+    .hud-crosshair::before { width: 110px; height: 1px; left: -18px; top: 37px; }
+    .hud-crosshair::after { width: 1px; height: 110px; left: 37px; top: -18px; }
+
+    @keyframes hudScan {
+        0%, 15% { transform: translateY(0); opacity: 0; }
+        25% { opacity: .8; }
+        85% { opacity: .35; }
+        100% { transform: translateY(820px); opacity: 0; }
+    }
+
+    @keyframes targetPulse {
+        0%, 100% { transform: scale(.9); opacity: .55; }
+        50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    @media (max-width: 640px) {
+        .hero-hud { inset: 6.5rem 4% 2rem; }
+        .hud-coordinate { font-size: .48rem; }
+        .hud-crosshair { width: 58px; height: 58px; }
+        .hud-crosshair::before { width: 86px; left: -15px; top: 28px; }
+        .hud-crosshair::after { height: 86px; left: 28px; top: -15px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .hud-scanline, .hud-target { animation: none; }
     }
 
     /* ── Editorial polish ─────────────────────────── */
@@ -1162,6 +1376,8 @@ section[id] {
 @keyframes ambientDrift { 0% { transform: translate3d(0,0,0) scale(1); } 100% { transform: translate3d(-5%,8%,0) scale(1.12); } }
 @keyframes scrollCue { 0%,100% { opacity: .25; transform: scaleY(.7); transform-origin: top; } 50% { opacity: .8; transform: scaleY(1); transform-origin: top; } }
 @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+@keyframes hudScan { 0%, 15% { transform: translateY(0); opacity: 0; } 25% { opacity: .8; } 85% { opacity: .35; } 100% { transform: translateY(820px); opacity: 0; } }
+@keyframes targetPulse { 0%, 100% { transform: scale(.9); opacity: .55; } 50% { transform: scale(1.15); opacity: 1; } }
 
 @media (max-width: 960px) {
     .stack-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1170,6 +1386,11 @@ section[id] {
 @media (max-width: 640px) {
     .hero-contact { min-height: auto; padding: 8rem 6% 6rem; }
     .hero-contact::after { bottom: 1rem; }
+    .hero-hud { inset: 6.5rem 4% 2rem; }
+    .hud-coordinate { font-size: .48rem; }
+    .hud-crosshair { width: 58px; height: 58px; }
+    .hud-crosshair::before { width: 86px; left: -15px; top: 28px; }
+    .hud-crosshair::after { height: 86px; left: 28px; top: -15px; }
     .hero-avatar-container { width: 148px; height: 148px; }
     .hero-avatar { width: 132px; height: 132px; }
     .title-extreme { font-size: clamp(2.8rem, 14vw, 4rem); }
@@ -1178,6 +1399,7 @@ section[id] {
 
 @media (prefers-reduced-motion: reduce) {
     .hero-contact::before, .hero-contact::after, .hero-avatar-container::before,
+    .hud-scanline, .hud-target,
     .hero-avatar-container, .gradient-text, .btn--primary, .btn-extreme {
         animation: none;
     }

@@ -322,6 +322,17 @@ input[type="file"] {
 
 /* ── Refined responsive and motion layer ───────── */
 .contact-section { padding-top: 9rem; }
+.contact-section::before {
+    content: 'CHANNEL / DIRECT  ·  STATUS / READY';
+    position: absolute;
+    top: 8rem;
+    right: 5%;
+    color: rgba(107, 213, 255, .38);
+    font: 500 .52rem/1 var(--font-mono);
+    letter-spacing: .16em;
+    pointer-events: none;
+    animation: contactSignal 4s ease-in-out infinite;
+}
 .contact-aside .title-extreme {
     font-size: clamp(2.6rem, 5vw, 4rem);
     letter-spacing: -0.05em;
@@ -405,12 +416,18 @@ input[type="file"] {
     50% { background-position: 100% 50%; }
 }
 
+@keyframes contactSignal {
+    0%, 100% { opacity: .35; }
+    50% { opacity: .8; }
+}
+
 @media (max-width: 860px) {
     .contact-section { padding-top: 8rem; }
 }
 
 @media (max-width: 560px) {
     .contact-section { padding: 8rem 6% 3rem; }
+    .contact-section::before { top: 6.8rem; right: 6%; font-size: .46rem; }
     .form-row { grid-template-columns: 1fr; gap: 0; }
     .contact-form-wrapper { padding: 1.35rem; }
     .file-input-wrapper { align-items: stretch; }
@@ -418,5 +435,5 @@ input[type="file"] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .contact-form-wrapper::before, .btn-extreme, .contact-note__dot { animation: none; }
+    .contact-form-wrapper::before, .btn-extreme, .contact-note__dot, .contact-section::before { animation: none; }
 }
