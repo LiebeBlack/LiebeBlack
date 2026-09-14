@@ -39,6 +39,124 @@
     --container: 1120px;
 }
 
+/* ── Final interaction layer ──────────────────── */
+:root {
+    --bg-0: #080b10;
+    --bg-1: rgba(17, 23, 32, 0.76);
+    --bg-2: rgba(22, 30, 42, 0.9);
+    --line-0: rgba(183, 205, 232, 0.12);
+    --line-1: rgba(183, 205, 232, 0.24);
+    --tx-0: #f4f7fb;
+    --tx-1: #aab7c8;
+    --tx-2: #718096;
+    --accent: #6bd5ff;
+    --accent-2: #a78bfa;
+    --accent-soft: rgba(107, 213, 255, 0.1);
+    --grad: linear-gradient(110deg, #6bd5ff 0%, #a78bfa 100%);
+    --glow: rgba(107, 213, 255, 0.24);
+    --r-lg: 22px;
+    --r-md: 14px;
+    --container: 1180px;
+}
+
+body {
+    background:
+        radial-gradient(900px 500px at 80% -10%, rgba(107, 213, 255, 0.09), transparent 70%),
+        radial-gradient(760px 520px at -10% 30%, rgba(167, 139, 250, 0.07), transparent 68%),
+        linear-gradient(180deg, #080b10 0%, #0b1018 55%, #080b10 100%);
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+.nav-contact__inner {
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0.45rem 0.55rem 0.45rem 0.75rem;
+    background: rgba(8, 11, 16, 0.72);
+    border-color: rgba(183, 205, 232, 0.18);
+}
+
+.nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--tx-0);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-brand__mark {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: var(--grad);
+    color: #081018;
+    font: 700 0.61rem/1 var(--font-mono);
+}
+
+.nav-brand__name {
+    font: 500 0.67rem/1 var(--font-body);
+}
+
+.nav-contact__links a {
+    font-family: var(--font-body);
+    font-size: 0.67rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-transform: none;
+}
+
+.nav-contact__links a::after {
+    content: '';
+    position: absolute;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.27rem;
+    height: 1px;
+    background: var(--grad);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s var(--ease);
+}
+
+.nav-contact__links a:hover::after,
+.nav-contact__links a.active::after,
+.nav-contact__links a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+.pointer-depth .project-card,
+.pointer-depth .service-item,
+.pointer-depth .profile-card,
+.pointer-depth .stack-col,
+.pointer-depth .channel-card {
+    background-image: radial-gradient(280px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(107, 213, 255, .08), transparent 65%);
+}
+
+@media (max-width: 640px) {
+    .nav-contact__inner { gap: 0.25rem; }
+    .nav-brand__name { display: none; }
+    .nav-contact__links a { font-size: 0.61rem; padding-inline: 0.5rem; }
+    .nav-contact__links a::after { left: 0.5rem; right: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body::before { display: none; }
+    .nav-contact__links a::after { transition: none; }
+}
+
 /* ── Reset & base ──────────────────────────────── */
 *,
 *::before,
