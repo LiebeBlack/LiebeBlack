@@ -1,5 +1,5 @@
 /**
- * Yoangel Gómez — Shared Behaviors v8
+ * Yoangel Gómez — Shared Behaviors v13
  * Preloader, native reveal engine, nav scroll state + scroll-spy,
  * scroll progress bar and a shared page-prefetch helper.
  *

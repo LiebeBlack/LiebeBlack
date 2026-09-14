@@ -1,5 +1,5 @@
 /**
- * Yoangel Gómez — Main Page v8
+ * Yoangel Gómez — Main Page v13
  * Page-specific interactions (shared behavior lives in common.js).
  */
 document.addEventListener('DOMContentLoaded', () => {
