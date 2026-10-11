@@ -146,20 +146,226 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', onScrollUpdate, { passive: true });
     onScrollUpdate();
 
-    // 6. Interactive Card Pointer Glow (Fine Pointers)
+    // 6. Interactive Card Pointer Depth, 3D Tilt & Magnetic Physics (Fine Pointers)
     if (!reduceMotionQuery.matches && window.matchMedia('(pointer: fine)').matches) {
         const interactiveCards = document.querySelectorAll(
             '.project-card, .service-item, .profile-card, .stack-col, .channel-card, .contact-form-wrapper'
         );
 
         interactiveCards.forEach(card => {
+            let isHovered = false;
+
+            card.addEventListener('pointerenter', () => {
+                isHovered = true;
+            }, { passive: true });
+
             card.addEventListener('pointermove', (event) => {
+                if (!isHovered) return;
                 const rect = card.getBoundingClientRect();
-                card.style.setProperty('--pointer-x', `${event.clientX - rect.left}px`);
-                card.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
+                const relX = event.clientX - rect.left;
+                const relY = event.clientY - rect.top;
+
+                // Pointer illumination coords
+                card.style.setProperty('--pointer-x', `${relX}px`);
+                card.style.setProperty('--pointer-y', `${relY}px`);
+
+                // Normalized tilt calculation (max ±4.5 degrees)
+                const normX = (relX / rect.width - 0.5) * 2;
+                const normY = (relY / rect.height - 0.5) * 2;
+                card.style.setProperty('--tilt-x', (normX * 4.5).toFixed(2));
+                card.style.setProperty('--tilt-y', (normY * 4.5).toFixed(2));
+            }, { passive: true });
+
+            card.addEventListener('pointerleave', () => {
+                isHovered = false;
+                card.style.setProperty('--tilt-x', '0');
+                card.style.setProperty('--tilt-y', '0');
             }, { passive: true });
         });
 
         document.documentElement.classList.add('pointer-depth');
+
+        // Magnetic Action Physics for Key Interactive Elements
+        const magneticElements = document.querySelectorAll('.btn--primary, .btn--ghost, .nav-brand');
+        magneticElements.forEach(el => {
+            el.addEventListener('pointermove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const dx = e.clientX - (rect.left + rect.width / 2);
+                const dy = e.clientY - (rect.top + rect.height / 2);
+                el.style.transform = `translate3d(${dx * 0.16}px, ${dy * 0.16}px, 0)`;
+            }, { passive: true });
+
+            el.addEventListener('pointerleave', () => {
+                el.style.transform = '';
+            }, { passive: true });
+        });
     }
+
+    // 7. Atomic Particle Physics Engine (Ultra-lightweight Subatomic Nodes)
+    const initAtomicCanvas = () => {
+        const canvas = document.getElementById('atomic-canvas');
+        if (!canvas || reduceMotionQuery.matches) return;
+
+        const ctx = canvas.getContext('2d', { alpha: true });
+        if (!ctx) return;
+
+        let width = 0;
+        let height = 0;
+        let dpr = 1;
+        let animationFrameId = null;
+        let isVisible = false;
+
+        const mouse = { x: -9999, y: -9999, active: false };
+
+        const resize = () => {
+            const rect = canvas.getBoundingClientRect();
+            width = rect.width;
+            height = rect.height;
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+            ctx.scale(dpr, dpr);
+        };
+
+        const PARTICLE_COUNT = Math.min(42, Math.max(22, Math.floor((window.innerWidth * window.innerHeight) / 28000)));
+        const particles = [];
+
+        const createParticle = () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.42,
+            vy: (Math.random() - 0.5) * 0.42,
+            radius: Math.random() * 0.8 + 0.9,
+            baseAlpha: Math.random() * 0.35 + 0.35,
+            phase: Math.random() * Math.PI * 2
+        });
+
+        const initParticles = () => {
+            particles.length = 0;
+            for (let i = 0; i < PARTICLE_COUNT; i++) {
+                particles.push(createParticle());
+            }
+        };
+
+        resize();
+        initParticles();
+
+        const parentSection = canvas.parentElement || document.body;
+        parentSection.addEventListener('pointermove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+            mouse.active = true;
+        }, { passive: true });
+
+        parentSection.addEventListener('pointerleave', () => {
+            mouse.active = false;
+            mouse.x = -9999;
+            mouse.y = -9999;
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+            resize();
+            initParticles();
+        }, { passive: true });
+
+        let lastTime = performance.now();
+        const render = (time) => {
+            if (!isVisible) return;
+
+            const dt = Math.min(32, time - lastTime) / 16.666;
+            lastTime = time;
+
+            ctx.clearRect(0, 0, width, height);
+
+            const connectionDist = 95;
+            const mouseRadius = 130;
+
+            // Physics Update
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.vx * dt;
+                p.y += p.vy * dt;
+                p.phase += 0.02 * dt;
+
+                if (p.x < 0) { p.x = 0; p.vx *= -1; }
+                else if (p.x > width) { p.x = width; p.vx *= -1; }
+                if (p.y < 0) { p.y = 0; p.vy *= -1; }
+                else if (p.y > height) { p.y = height; p.vy *= -1; }
+
+                if (mouse.active) {
+                    const dx = p.x - mouse.x;
+                    const dy = p.y - mouse.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < mouseRadius && dist > 0.1) {
+                        const force = (1 - dist / mouseRadius) * 0.8;
+                        p.x += (dx / dist) * force * 2.2 * dt;
+                        p.y += (dy / dist) * force * 2.2 * dt;
+                    }
+                }
+            }
+
+            // Hairline Inter-particle Connections
+            ctx.lineWidth = 0.65;
+            for (let i = 0; i < particles.length; i++) {
+                const p1 = particles[i];
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.hypot(dx, dy);
+
+                    if (dist < connectionDist) {
+                        const alpha = (1 - dist / connectionDist) * 0.22;
+                        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha.toFixed(3)})`;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Subatomic Node Dots
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                const pulse = (Math.sin(p.phase) + 1) * 0.15;
+                const currentAlpha = Math.min(1, p.baseAlpha + pulse);
+
+                ctx.fillStyle = `rgba(56, 189, 248, ${currentAlpha.toFixed(2)})`;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            animationFrameId = requestAnimationFrame(render);
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isVisible = entry.isIntersecting;
+                if (isVisible) {
+                    lastTime = performance.now();
+                    if (!animationFrameId) animationFrameId = requestAnimationFrame(render);
+                } else if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                    animationFrameId = null;
+                }
+            });
+        }, { threshold: 0.05 });
+
+        observer.observe(canvas);
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden && animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            } else if (!document.hidden && isVisible && !animationFrameId) {
+                lastTime = performance.now();
+                animationFrameId = requestAnimationFrame(render);
+            }
+        });
+    };
+
+    initAtomicCanvas();
 });

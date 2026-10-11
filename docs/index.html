@@ -150,6 +150,9 @@
 
         <!-- HERO SECTION -->
         <section class="hero-contact" id="hero" aria-label="Introducción">
+            <!-- Quantum Particle Canvas -->
+            <canvas id="atomic-canvas" class="atomic-canvas" aria-hidden="true"></canvas>
+
             <!-- HUD Overlay -->
             <div class="hero-hud" aria-hidden="true">
                 <span class="hud-coordinate hud-coordinate--top">04.735° N · 74.072° W</span>
@@ -162,6 +165,10 @@
 
             <div class="hero-layout">
                 <div class="hero-avatar-container">
+                    <!-- Atomic Orbital Physics Rings -->
+                    <div class="atomic-orbit atomic-orbit--1" aria-hidden="true"><span class="orbit-electron"></span></div>
+                    <div class="atomic-orbit atomic-orbit--2" aria-hidden="true"><span class="orbit-electron"></span></div>
+                    <div class="atomic-orbit atomic-orbit--3" aria-hidden="true"><span class="orbit-electron"></span></div>
                     <div class="hero-avatar">
                         <img src="img/avatar_premium.png" alt="Yoangel Gómez (LiebeBlack)" width="216" height="216" fetchpriority="high" decoding="async">
                     </div>
@@ -305,6 +312,17 @@
                         paramétrico y compuerta de ruido, telemetría en vivo y automatización de
                         locución mediante síntesis de voz (TTS). Persistencia local en SQLite con WAL.
                     </p>
+                    <div class="dsp-visualizer" aria-hidden="true">
+                        <span class="dsp-bar" style="--d: 0.1s; --h: 70%;"></span>
+                        <span class="dsp-bar" style="--d: 0.3s; --h: 92%;"></span>
+                        <span class="dsp-bar" style="--d: 0.05s; --h: 45%;"></span>
+                        <span class="dsp-bar" style="--d: 0.25s; --h: 98%;"></span>
+                        <span class="dsp-bar" style="--d: 0.4s; --h: 65%;"></span>
+                        <span class="dsp-bar" style="--d: 0.15s; --h: 88%;"></span>
+                        <span class="dsp-bar" style="--d: 0.35s; --h: 55%;"></span>
+                        <span class="dsp-bar" style="--d: 0.2s; --h: 82%;"></span>
+                        <span class="dsp-label">DSP LIVE · 48 kHz / 24-bit</span>
+                    </div>
                     <div class="project-tags">
                         <span>Python 3.12</span>
                         <span>CustomTkinter</span>
@@ -328,6 +346,7 @@
                 <article class="project-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="project-meta">
                         <span class="project-category">WebUSB &amp; Hardware Android</span>
+                        <span class="telemetry-badge">USB // STREAM ACTIVE</span>
                         <span class="project-year">Agosto 2026</span>
                     </div>
                     <h3 class="project-title">Fastboot Web Tool</h3>
@@ -354,6 +373,7 @@
                 <article class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-meta">
                         <span class="project-category">Plataforma Web &amp; Edge</span>
+                        <span class="telemetry-badge">EDGE // CLOUDFLARE</span>
                         <span class="project-year">2022 — 2026</span>
                     </div>
                     <h3 class="project-title">Ky! Movies</h3>
@@ -383,6 +403,7 @@
                 <article class="project-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="project-meta">
                         <span class="project-category">Gráficos Nativos &amp; Direct3D 11</span>
+                        <span class="telemetry-badge">D3D11 // 120 FPS NATIVE</span>
                         <span class="project-year">Agosto 2026</span>
                     </div>
                     <h3 class="project-title">Wallpaper Engine Ultra v2.0</h3>

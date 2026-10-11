@@ -585,14 +585,58 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
     }
 }
 
-/* ── 12. Accessibility & Reduced Motion ───────────────────────────────────── */
+/* ── 12. Atomic Visual Primitives & Telemetry ─────────────────────────────── */
+.atomic-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.75;
+}
+
+.telemetry-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.24rem 0.68rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald);
+    background: rgba(52, 211, 153, 0.06);
+    border: 1px solid rgba(52, 211, 153, 0.28);
+    border-radius: var(--r-pill);
+    box-shadow: 0 0 12px rgba(52, 211, 153, 0.08);
+}
+
+.telemetry-badge::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--emerald);
+    box-shadow: 0 0 8px var(--emerald);
+    animation: telemetryPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes telemetryPulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.85); }
+    50%      { opacity: 1; transform: scale(1.15); }
+}
+
+/* ── 13. Accessibility & Reduced Motion ───────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
 
-    body::before {
-        display: none;
+    body::before,
+    .atomic-canvas {
+        display: none !important;
     }
 
     *,
@@ -608,3 +652,4 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
         transform: none !important;
     }
 }
+

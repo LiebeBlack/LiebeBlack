@@ -298,15 +298,17 @@ section[id] {
     max-width: var(--container);
 }
 
-/* Hero Avatar */
+/* Hero Avatar & 3D Atomic Orbitals */
 .hero-avatar-container {
     position: relative;
-    width: 204px;
-    height: 204px;
+    width: 216px;
+    height: 216px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    perspective: 850px;
+    transform-style: preserve-3d;
     animation: heroFloat 7s ease-in-out infinite;
 }
 
@@ -326,6 +328,71 @@ section[id] {
     inset: -2px;
     border-radius: 50%;
     border: 1px solid rgba(183, 205, 232, 0.2);
+}
+
+/* Atomic Orbital Geometry */
+.atomic-orbit {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    z-index: 3;
+}
+
+.atomic-orbit--1 {
+    inset: -8px;
+    border: 1px solid rgba(56, 189, 248, 0.38);
+    animation: orbitSpin1 12s linear infinite;
+}
+
+.atomic-orbit--2 {
+    inset: -22px;
+    border: 1px dashed rgba(129, 140, 248, 0.32);
+    animation: orbitSpin2 18s linear infinite reverse;
+}
+
+.atomic-orbit--3 {
+    inset: -36px;
+    border: 1px solid rgba(52, 211, 153, 0.26);
+    animation: orbitSpin3 24s linear infinite;
+}
+
+.orbit-electron {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    margin-top: -3px;
+    margin-left: -3px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px 2px var(--accent), 0 0 18px rgba(56, 189, 248, 0.65);
+}
+
+.atomic-orbit--2 .orbit-electron {
+    background: var(--accent-2);
+    box-shadow: 0 0 10px 2px var(--accent-2), 0 0 18px rgba(129, 140, 248, 0.65);
+}
+
+.atomic-orbit--3 .orbit-electron {
+    background: var(--emerald);
+    box-shadow: 0 0 10px 2px var(--emerald), 0 0 18px rgba(52, 211, 153, 0.65);
+}
+
+@keyframes orbitSpin1 {
+    0%   { transform: rotateX(68deg) rotateY(18deg) rotateZ(0deg); }
+    100% { transform: rotateX(68deg) rotateY(18deg) rotateZ(360deg); }
+}
+
+@keyframes orbitSpin2 {
+    0%   { transform: rotateX(72deg) rotateY(-36deg) rotateZ(0deg); }
+    100% { transform: rotateX(72deg) rotateY(-36deg) rotateZ(360deg); }
+}
+
+@keyframes orbitSpin3 {
+    0%   { transform: rotateX(58deg) rotateY(65deg) rotateZ(0deg); }
+    100% { transform: rotateX(58deg) rotateY(65deg) rotateZ(360deg); }
 }
 
 .hero-avatar {
@@ -639,8 +706,37 @@ section[id] {
 
 .project-card--featured {
     grid-column: 1 / -1;
+    position: relative;
     background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(129, 140, 248, 0.035) 60%), var(--bg-1);
-    border-color: rgba(56, 189, 248, 0.22);
+    border-color: rgba(56, 189, 248, 0.28);
+    overflow: hidden;
+}
+
+.project-card--featured::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+        from 0deg at 50% 50%,
+        transparent 0deg,
+        rgba(56, 189, 248, 0.55) 60deg,
+        rgba(129, 140, 248, 0.55) 120deg,
+        transparent 180deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: rotateBeam 9s linear infinite;
+    opacity: 0.85;
+}
+
+@keyframes rotateBeam {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 .project-card--featured::after {
@@ -703,6 +799,49 @@ section[id] {
     line-height: 1.68;
     color: var(--tx-1);
     max-width: 72ch;
+}
+
+/* Live DSP Visualizer Widget (S.M.A.C. Station) */
+.dsp-visualizer {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 38px;
+    padding: 0.4rem 0.85rem;
+    margin: 0 0 1.35rem;
+    background: rgba(8, 12, 20, 0.75);
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: var(--r-sm);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 16px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.dsp-bar {
+    width: 3px;
+    height: var(--h, 60%);
+    background: linear-gradient(180deg, var(--emerald) 0%, var(--accent) 70%);
+    border-radius: 2px;
+    animation: dspPulse 1.4s ease-in-out infinite alternate;
+    animation-delay: var(--d, 0s);
+    transform-origin: bottom;
+}
+
+@keyframes dspPulse {
+    0%   { transform: scaleY(0.2); opacity: 0.4; }
+    50%  { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(0.4); opacity: 0.65; }
+}
+
+.dsp-label {
+    margin-left: 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--emerald);
+    align-self: center;
+    white-space: nowrap;
 }
 
 .project-tags {
