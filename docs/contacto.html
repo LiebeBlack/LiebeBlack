@@ -1,73 +1,128 @@
 <!DOCTYPE html>
 <html lang="es" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Yoangel Gómez — Ingeniería de Software</title>
-    <meta name="theme-color" content="#07070b">
-    <meta name="description" content="Contacta con Yoangel Gómez para consultas de desarrollo de software de sistemas: C++ nativo y Direct3D 11, audio DSP en Python, aplicaciones de escritorio e integraciones WebUSB con hardware.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Contacto | Yoangel Gómez (LiebeBlack) · Ingeniería de Software</title>
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#06080d">
+    <meta name="description" content="Contacta a Yoangel Gómez (LiebeBlack) para proyectos de ingeniería de software de sistemas: C++ nativo (Direct3D 11), procesamiento de audio DSP en Python, interfaces WebUSB y optimización AOSP.">
+    <meta name="keywords" content="Yoangel Gómez, LiebeBlack, Contacto, Consultoría de Software, C++, Python, DSP Audio, WebUSB, Android, AOSP, Software a Medida">
     <meta name="author" content="Yoangel Gómez">
     <link rel="canonical" href="https://liebeblack.github.io/LiebeBlack/contacto.html">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Yoangel Gómez · LiebeBlack">
     <meta property="og:title" content="Contacto | Yoangel Gómez — Ingeniería de Software">
-    <meta property="og:description" content="Consultas sobre desarrollo de software, arquitectura de sistemas y proyectos de ingeniería.">
+    <meta property="og:description" content="Inicia una consulta para desarrollo de software de sistemas, consolas de audio DSP, herramientas para hardware o arquitectura técnica.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://liebeblack.github.io/LiebeBlack/contacto.html">
+    <meta property="og:image" content="https://liebeblack.github.io/LiebeBlack/img/avatar_premium.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contacto | Yoangel Gómez — Ingeniería de Software">
+    <meta name="twitter:description" content="Canal directo de contacto para consultas de desarrollo de software, audio DSP y bajo nivel.">
+    <meta name="twitter:image" content="https://liebeblack.github.io/LiebeBlack/img/avatar_premium.png">
+
+    <!-- Speculation Rules API (Chrome 157+ / Chromium Instant Navigation) -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "source": "list",
+          "urls": ["index.html"],
+          "eagerness": "moderate"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contacto con Yoangel Gómez",
+      "url": "https://liebeblack.github.io/LiebeBlack/contacto.html",
+      "description": "Formulario y canales directos de contacto para consultas técnicas y desarrollo de software de sistemas.",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Yoangel Gómez",
+        "alternateName": "LiebeBlack",
+        "email": "contact@yoangelgomez.dev",
+        "url": "https://liebeblack.github.io/LiebeBlack/",
+        "sameAs": [
+          "https://github.com/LiebeBlack"
+        ]
+      }
+    }
+    </script>
 
     <!-- Fonts & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <noscript>
         <style>
             .preloader { display: none !important; }
-            [data-aos] { opacity: 1 !important; transform: none !important; filter: none !important; }
+            [data-aos] { opacity: 1 !important; transform: none !important; }
         </style>
     </noscript>
-    <link rel="stylesheet" href="css/base.css?v=13.0">
-    <link rel="stylesheet" href="css/contact.css?v=13.0">
+
+    <link rel="stylesheet" href="css/base.css?v=15.0">
+    <link rel="stylesheet" href="css/contact.css?v=15.0">
 </head>
+
 <body class="contact-page">
 
-    <!-- Preloader -->
-    <div id="preloader" class="preloader">
-        <div class="preloader__ring"></div>
-        <div class="preloader__logo">YG</div>
-        <span class="preloader__status">Cargando sistemas</span>
-    </div>
-
+    <!-- Scroll Progress Indicator -->
     <div class="scroll-progress" aria-hidden="true"></div>
 
-    <!-- Navbar -->
-    <nav class="nav-contact" id="nav" aria-label="Navegación principal">
-        <div class="nav-contact__inner">
-            <a class="nav-brand" href="index.html" aria-label="Yoangel Gómez, inicio">
-                <span class="nav-brand__mark">YG</span>
-                <span class="nav-brand__name">Yoangel Gómez</span>
-            </a>
-            <ul class="nav-contact__links" id="nav-links">
-                <li><a href="index.html#perfil">Perfil</a></li>
-                <li><a href="index.html#experiencia">Trayectoria</a></li>
-                <li><a href="index.html#proyectos">Proyectos</a></li>
-                <li><a href="contacto.html" aria-current="page">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Minimal HUD Preloader -->
+    <div id="preloader" class="preloader" role="status" aria-live="polite">
+        <div class="preloader__ring"></div>
+        <div class="preloader__logo">YG</div>
+        <span class="preloader__status">Iniciando canal // Seguro</span>
+    </div>
+
+    <!-- Floating Pill Navigation -->
+    <header>
+        <nav class="nav-contact" id="nav" aria-label="Navegación principal">
+            <div class="nav-contact__inner">
+                <a class="nav-brand" href="index.html" aria-label="Yoangel Gómez, volver al inicio">
+                    <span class="nav-brand__mark">YG</span>
+                    <span class="nav-brand__name">Yoangel Gómez</span>
+                </a>
+                <ul class="nav-contact__links" id="nav-links">
+                    <li><a href="index.html#perfil">Perfil</a></li>
+                    <li><a href="index.html#experiencia">Trayectoria</a></li>
+                    <li><a href="index.html#proyectos">Proyectos</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#stack">Stack</a></li>
+                    <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main>
-        <section class="contact-section" id="contacto">
+        <section class="contact-section" id="contacto" aria-label="Formulario y canales de contacto">
             <div class="contact-shell">
 
-                <!-- Info & channels -->
-                <div class="contact-aside" data-aos="fade-up">
-                    <span class="section-label">Comunicación directa</span>
+                <!-- Info & Channels Aside -->
+                <aside class="contact-aside" data-aos="fade-up">
+                    <span class="section-label">06 // Comunicación Directa</span>
                     <h1 class="title-extreme">Iniciar una consulta</h1>
                     <p class="contact-intro">
-                        ¿Un sistema de escritorio, una consola de audio, una herramienta para tu
-                        hardware o una arquitectura que ordenar? Descríbeme el proyecto y te
-                        responderé con una propuesta clara y concreta.
+                        ¿Un sistema de escritorio, una consola de audio DSP, una herramienta WebUSB
+                        para tu hardware o una arquitectura que ordenar? Descríbeme el proyecto y te
+                        responderé con una propuesta técnica clara y concreta.
                     </p>
 
                     <div class="contact-channels">
@@ -76,7 +131,7 @@
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                             </span>
                             <span class="channel-card__body">
-                                <span class="channel-card__label">Correo directo</span>
+                                <span class="channel-card__label">Correo Directo</span>
                                 <span class="channel-card__value">contact@yoangelgomez.dev</span>
                             </span>
                         </a>
@@ -86,24 +141,25 @@
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                             </span>
                             <span class="channel-card__body">
-                                <span class="channel-card__label">Código y proyectos</span>
+                                <span class="channel-card__label">Código &amp; Repositorios</span>
                                 <span class="channel-card__value">github.com/LiebeBlack</span>
                             </span>
                         </a>
                     </div>
 
-                    <p class="contact-note">
+                    <div class="contact-note">
                         <span class="contact-note__dot" aria-hidden="true"></span>
-                        Disponible para proyectos freelance y colaboración técnica
-                    </p>
-                </div>
+                        <span>Disponible para proyectos freelance y colaboración técnica</span>
+                    </div>
+                </aside>
 
-                <!-- Form -->
+                <!-- Contact Form Card -->
                 <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="150">
                     <form id="contact-form" action="https://formspree.io/f/xpqopvkd" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="_subject" value="Nueva consulta desde el portafolio — Yoangel Gómez">
-                        <p class="form-kicker">Cuéntame lo esencial</p>
-                        <p class="form-intro">Una primera descripción es suficiente para entender el alcance y responderte con los siguientes pasos.</p>
+                        <input type="hidden" name="_subject" value="Nueva consulta técnica desde portafolio — Yoangel Gómez">
+
+                        <h2 class="form-kicker">Cuéntame lo esencial</h2>
+                        <p class="form-intro">Una primera descripción es suficiente para evaluar los requerimientos técnicos y coordinar los pasos a seguir.</p>
 
                         <div class="form-row">
                             <div class="form-group">
@@ -126,12 +182,12 @@
                                 </label>
                                 <input type="file" id="file-upload" name="attachment" accept=".pdf,.doc,.docx,.txt,.zip">
                             </div>
-                            <p class="form-hint">PDF, DOCX, TXT o ZIP · opcional</p>
+                            <p class="form-hint">PDF, DOCX, TXT o ZIP · máx. 10 MB · opcional</p>
                         </div>
 
                         <div class="form-group">
                             <label for="message" class="form-label">Detalles del proyecto</label>
-                            <textarea id="message" name="message" class="form-input" placeholder="Cuéntame el objetivo, los requerimientos técnicos o la consulta..." required minlength="20"></textarea>
+                            <textarea id="message" name="message" class="form-input" placeholder="Describe los requerimientos técnicos, objetivo del software o consulta específica..." required minlength="15"></textarea>
                         </div>
 
                         <button type="submit" class="btn-extreme">
@@ -146,14 +202,33 @@
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Minimal Footer -->
     <footer class="footer-contact">
-        <p class="footer-copyright">
-            Yoangel Gómez · Ingeniero de Software — 2026
-        </p>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/LiebeBlack/" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub de LiebeBlack">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <a href="mailto:contact@yoangelgomez.dev" aria-label="Enviar correo electrónico directo a Yoangel Gómez">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-status-pill">
+                <span class="footer-status-dot" aria-hidden="true"></span>
+                <span>SYS // ALL SYSTEMS NOMINAL · 2026</span>
+            </div>
+            <p class="footer-copyright">Yoangel Gómez (LiebeBlack) · Ingeniería de Software de Sistemas</p>
+        </div>
     </footer>
 
-    <script src="js/common.js?v=13.0"></script>
-    <script src="js/contact.js?v=13.0"></script>
+    <!-- Scripts -->
+    <script src="js/common.js?v=15.0"></script>
+    <script src="js/contact.js?v=15.0"></script>
 </body>
+
 </html>

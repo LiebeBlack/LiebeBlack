@@ -1,24 +1,27 @@
 /**
- * Yoangel Gómez — Contact Page v13
- * Formspree integration + file feedback (shared behavior in common.js).
+ * YOANGEL GÓMEZ · LIEBEBLACK — CONTACT PAGE SCRIPT
+ * Formspree Async Handling & File Attachment Feedback
  */
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    // 1. File input: show the chosen file name
+    // 1. File Upload Feedback
     const fileInput = document.getElementById('file-upload');
     const fileName = document.getElementById('file-name');
 
     if (fileInput && fileName) {
         fileInput.addEventListener('change', () => {
             const file = fileInput.files && fileInput.files[0];
-            fileName.textContent = file
-                ? `Archivo adjunto: ${file.name} · ${(file.size / 1024 / 1024).toFixed(1)} MB`
-                : 'Adjuntar archivo (opcional)';
+            if (file) {
+                const sizeMb = (file.size / (1024 * 1024)).toFixed(2);
+                fileName.textContent = `Adjunto: ${file.name} (${sizeMb} MB)`;
+            } else {
+                fileName.textContent = 'Adjuntar archivo (opcional)';
+            }
         });
     }
 
-    // 2. Formspree submission with clear visual feedback
+    // 2. Formspree Asynchronous Submission
     const form = document.getElementById('contact-form');
     const status = document.getElementById('status');
 
@@ -30,18 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
             status.classList.add('visible');
         };
 
-        async function handleSubmit(event) {
+        const clearStatus = () => {
+            status.textContent = '';
+            status.classList.remove('visible', 'form-status--success', 'form-status--error');
+        };
+
+        form.addEventListener('submit', async (event) => {
             event.preventDefault();
+
+            const submitBtn = form.querySelector('.btn-extreme');
+            const originalText = submitBtn.textContent;
             const data = new FormData(form);
 
-            const btn = form.querySelector('.btn-extreme');
-            const originalBtnText = btn.textContent;
-
-            // Sending state
-            btn.textContent = 'Enviando…';
-            btn.disabled = true;
+            // Set loading state
+            submitBtn.textContent = 'Enviando consulta…';
+            submitBtn.disabled = true;
             form.setAttribute('aria-busy', 'true');
-            status.classList.remove('visible', 'form-status--success', 'form-status--error');
+            clearStatus();
 
             try {
                 const response = await fetch(form.action, {
@@ -52,26 +60,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     form.reset();
-                    if (fileName) fileName.textContent = 'Adjuntar archivo (opcional)';
-                    setStatus('Consulta enviada. Te responderé en breve.', 'success');
+                    if (fileName) {
+                        fileName.textContent = 'Adjuntar archivo (opcional)';
+                    }
+                    setStatus('Consulta enviada exitosamente. Responderé a la brevedad.', 'success');
                 } else {
-                    const error = await response.json().catch(() => ({}));
-                    throw new Error(error.error || 'HTTP ' + response.status);
+                    const errData = await response.json().catch(() => ({}));
+                    const errMsg = errData.errors?.map(e => e.message).join(', ') || 'Error al procesar el formulario.';
+                    throw new Error(errMsg);
                 }
             } catch (err) {
-                setStatus('No se pudo enviar la consulta. Revisa tu conexión e inténtalo de nuevo.', 'error');
+                setStatus('No se pudo enviar la consulta. Por favor, verifica tu conexión o escríbeme directamente a contact@yoangelgomez.dev', 'error');
             } finally {
-                btn.textContent = originalBtnText;
-                btn.disabled = false;
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
                 form.setAttribute('aria-busy', 'false');
             }
-        }
-
-        form.addEventListener('submit', handleSubmit);
+        });
     }
 
-    // 3. Predictive pre-fetch of the home page
-    document.querySelectorAll('a[href^="index.html"]').forEach(link => {
+    // 3. Predictive Prefetch of Home Page
+    const homeLinks = document.querySelectorAll('a[href^="index.html"]');
+    homeLinks.forEach(link => {
         link.addEventListener('mouseenter', () => prefetchPage('index.html'), { once: true });
         link.addEventListener('touchstart', () => prefetchPage('index.html'), { once: true, passive: true });
     });

@@ -3,14 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoangel Gómez | Ingeniero de Software & Arquitecto de Sistemas</title>
-    <meta name="theme-color" content="#07070b">
-    <meta name="description" content="Portafolio de Yoangel Gómez (LiebeBlack): ingeniería de software de sistemas en C++ nativo (Direct3D 11, Win32), audio DSP y aplicaciones de escritorio en Python, interfaces WebUSB para hardware y optimización de Android.">
-    <meta name="keywords" content="Yoangel Gómez, LiebeBlack, Ingeniero de Software, Arquitectura de Sistemas, C++, Direct3D 11, Python, CustomTkinter, Audio DSP, WebUSB, Android, ADB, SQLite, Clean Architecture">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Yoangel Gómez (LiebeBlack) · Ingeniería de Software &amp; Arquitectura de Sistemas</title>
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#06080d">
+    <meta name="description" content="Portafolio de Yoangel Gómez (LiebeBlack): ingeniería de software de sistemas en C++ nativo (Direct3D 11, Win32), procesamiento de audio DSP en Python, interfaces WebUSB para hardware y optimización AOSP/Android.">
+    <meta name="keywords" content="Yoangel Gómez, LiebeBlack, Ingeniero de Software, Arquitectura de Sistemas, C++, Direct3D 11, Win32, Python, CustomTkinter, Audio DSP, WebUSB, Android, AOSP, ADB, SQLite, Clean Architecture">
     <meta name="author" content="Yoangel Gómez">
     <link rel="canonical" href="https://liebeblack.github.io/LiebeBlack/">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Yoangel Gómez · LiebeBlack">
+    <meta property="og:title" content="Yoangel Gómez — Ingeniero de Software &amp; Arquitecto de Sistemas">
+    <meta property="og:description" content="Especializado en C++ nativo (Direct3D 11), Python (CustomTkinter, DSP), WebUSB y optimización de sistemas de bajo nivel.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://liebeblack.github.io/LiebeBlack/">
+    <meta property="og:image" content="https://liebeblack.github.io/LiebeBlack/img/avatar_premium.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yoangel Gómez — Ingeniero de Software &amp; Arquitecto de Sistemas">
+    <meta name="twitter:description" content="Software de sistemas, audio DSP en tiempo real, interfaces WebUSB y arquitectura de alto rendimiento.">
+    <meta name="twitter:image" content="https://liebeblack.github.io/LiebeBlack/img/avatar_premium.png">
+
+    <!-- Speculation Rules API (Chrome 157+ / Chromium Instant Navigation) -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "source": "list",
+          "urls": ["contacto.html"],
+          "eagerness": "moderate"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -21,6 +52,7 @@
           "name": "Yoangel Gómez",
           "alternateName": "LiebeBlack",
           "url": "https://liebeblack.github.io/LiebeBlack/",
+          "image": "https://liebeblack.github.io/LiebeBlack/img/avatar_premium.png",
           "jobTitle": "Ingeniero de Software & Arquitecto de Sistemas",
           "worksFor": {
             "@type": "Organization",
@@ -29,6 +61,16 @@
           "sameAs": [
             "https://github.com/LiebeBlack"
           ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://liebeblack.github.io/LiebeBlack/#website",
+          "url": "https://liebeblack.github.io/LiebeBlack/",
+          "name": "Yoangel Gómez — Portafolio Profesional",
+          "publisher": {
+            "@id": "https://liebeblack.github.io/LiebeBlack/#person"
+          },
+          "inLanguage": "es"
         },
         {
           "@type": "ProfessionalService",
@@ -52,80 +94,84 @@
       ]
     }
     </script>
-    <meta property="og:title" content="Yoangel Gómez — Ingeniero de Software & Arquitecto de Sistemas">
-    <meta property="og:description" content="Especializado en C++ nativo (Direct3D 11), Python (CustomTkinter, DSP), WebUSB y optimización de sistemas.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://yoangelgomez.dev/img/avatar_premium.png">
 
-    <!-- Fonts & Performance -->
+    <!-- Fonts & High-Priority Assets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="preload" href="img/avatar_premium.png" as="image" fetchpriority="high">
 
     <noscript>
         <style>
             .preloader { display: none !important; }
-            [data-aos] { opacity: 1 !important; transform: none !important; filter: none !important; }
+            [data-aos] { opacity: 1 !important; transform: none !important; }
         </style>
     </noscript>
-    <link rel="stylesheet" href="css/base.css?v=13.0">
-    <link rel="stylesheet" href="css/style.css?v=13.0">
-    <meta name="google-site-verification" content="sIcVnR7j8Ux5H0mz0PAwFFTlCZnvJDmp1WnddLR1kUI" />
+
+    <link rel="stylesheet" href="css/base.css?v=15.0">
+    <link rel="stylesheet" href="css/style.css?v=15.0">
+    <meta name="google-site-verification" content="sIcVnR7j8Ux5H0mz0PAwFFTlCZnvJDmp1WnddLR1kUI">
 </head>
 
 <body class="main-page">
 
+    <!-- Scroll Progress Indicator -->
     <div class="scroll-progress" aria-hidden="true"></div>
 
-    <!-- PRELOADER -->
-    <div id="preloader" class="preloader">
+    <!-- Minimal HUD Preloader -->
+    <div id="preloader" class="preloader" role="status" aria-live="polite">
         <div class="preloader__ring"></div>
         <div class="preloader__logo">YG</div>
-        <span class="preloader__status">Cargando sistemas</span>
+        <span class="preloader__status">Iniciando sistemas // Nominal</span>
     </div>
 
-    <!-- NAVIGATION -->
-    <nav class="nav-contact" id="nav" aria-label="Navegación principal">
-        <div class="nav-contact__inner">
-            <a class="nav-brand" href="index.html" aria-label="Yoangel Gómez, inicio">
-                <span class="nav-brand__mark">YG</span>
-                <span class="nav-brand__name">Yoangel Gómez</span>
-            </a>
-            <ul class="nav-contact__links" id="nav-links">
-                <li><a href="#perfil">Perfil</a></li>
-                <li><a href="#experiencia">Trayectoria</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Floating Pill Navigation -->
+    <header>
+        <nav class="nav-contact" id="nav" aria-label="Navegación principal">
+            <div class="nav-contact__inner">
+                <a class="nav-brand" href="index.html" aria-label="Yoangel Gómez, inicio">
+                    <span class="nav-brand__mark">YG</span>
+                    <span class="nav-brand__name">Yoangel Gómez</span>
+                </a>
+                <ul class="nav-contact__links" id="nav-links">
+                    <li><a href="#perfil">Perfil</a></li>
+                    <li><a href="#experiencia">Trayectoria</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#stack">Stack</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
     <main>
 
-        <!-- HERO -->
-        <section class="hero-contact">
+        <!-- HERO SECTION -->
+        <section class="hero-contact" id="hero" aria-label="Introducción">
+            <!-- HUD Overlay -->
             <div class="hero-hud" aria-hidden="true">
                 <span class="hud-coordinate hud-coordinate--top">04.735° N · 74.072° W</span>
-                <span class="hud-coordinate hud-coordinate--bottom">SYS / 11.0 · ONLINE</span>
+                <span class="hud-coordinate hud-coordinate--bottom">SYS // ONLINE · 2026</span>
                 <span class="hud-scanline"></span>
                 <span class="hud-target hud-target--one"></span>
                 <span class="hud-target hud-target--two"></span>
                 <span class="hud-crosshair"></span>
             </div>
+
             <div class="hero-layout">
                 <div class="hero-avatar-container">
                     <div class="hero-avatar">
-                        <img src="img/avatar_premium.png" alt="Yoangel Gómez" width="216" height="216" fetchpriority="high" decoding="async">
+                        <img src="img/avatar_premium.png" alt="Yoangel Gómez (LiebeBlack)" width="216" height="216" fetchpriority="high" decoding="async">
                     </div>
                 </div>
 
                 <div class="hero-content">
-                    <p class="hero-eyebrow">Ingeniero de Software · Sistemas, Audio &amp; Hardware</p>
+                    <p class="hero-eyebrow">Ingeniería de Software · Sistemas, Audio &amp; Hardware</p>
                     <h1 class="title-extreme">Yoangel Gómez</h1>
                     <p class="hero-subtitle"><span class="hero-alias">LiebeBlack</span> — C++ Nativo · Python DSP · WebUSB</p>
-                    <p class="hero-intro">Diseño software de alto rendimiento para conectar audio, hardware y sistemas operativos.</p>
+                    <p class="hero-intro">Diseño software de alto rendimiento para conectar audio, hardware y sistemas operativos con mínima latencia y máxima eficiencia.</p>
                     <div class="hero-actions">
                         <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
                         <a href="contacto.html" class="btn btn--ghost">Iniciar una consulta</a>
@@ -134,11 +180,11 @@
             </div>
         </section>
 
-        <!-- PERFIL -->
-        <section class="section-profile" id="perfil">
+        <!-- PERFIL PROFESIONAL -->
+        <section class="section-profile" id="perfil" aria-labelledby="perfil-title">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Perfil Profesional</span>
-                <h2 class="section-title">Diseño y desarrollo de <span class="gradient-text">sistemas robustos</span></h2>
+                <span class="section-label">01 // Perfil Profesional</span>
+                <h2 class="section-title" id="perfil-title">Diseño y desarrollo de <span class="gradient-text">sistemas robustos</span></h2>
             </div>
 
             <div class="profile-grid">
@@ -173,22 +219,22 @@
                     <p class="profile-desc">
                         Construyo con la disciplina de un sistema de tiempo real: capas bien
                         separadas, diseño guiado por el dominio y consumo de recursos medido.
-                        Menos dependencias, menos sorpresas en producción.
+                        Menos dependencias, cero sorpresas en producción.
                     </p>
                     <ul class="profile-list">
-                        <li>Clean Architecture y SOLID aplicados a cada proyecto</li>
-                        <li>Concurrencia y latencia tratadas desde el diseño</li>
-                        <li>Optimización de CPU, memoria y almacenamiento verificada</li>
+                        <li>Clean Architecture y principios SOLID aplicados a cada solución</li>
+                        <li>Concurrencia, sincronización y latencia tratadas desde el diseño</li>
+                        <li>Optimización profilada de CPU, memoria y almacenamiento persistente</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIENCIA -->
-        <section class="section-experience" id="experiencia">
+        <!-- TRAYECTORIA -->
+        <section class="section-experience" id="experiencia" aria-labelledby="experiencia-title">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Trayectoria</span>
-                <h2 class="section-title">Evolución y <span class="gradient-text">desarrollo técnico</span></h2>
+                <span class="section-label">02 // Trayectoria</span>
+                <h2 class="section-title" id="experiencia-title">Evolución y <span class="gradient-text">desarrollo técnico</span></h2>
             </div>
 
             <div class="timeline-clean">
@@ -238,11 +284,11 @@
             </div>
         </section>
 
-        <!-- PROYECTOS -->
-        <section class="section-projects" id="proyectos">
+        <!-- PROYECTOS DESTACADOS -->
+        <section class="section-projects" id="proyectos" aria-labelledby="proyectos-title">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Portafolio de proyectos</span>
-                <h2 class="section-title">Trabajos y <span class="gradient-text">desarrollos</span></h2>
+                <span class="section-label">03 // Portafolio Seleccionado</span>
+                <h2 class="section-title" id="proyectos-title">Trabajos y <span class="gradient-text">desarrollos</span></h2>
             </div>
 
             <div class="projects-grid">
@@ -257,7 +303,7 @@
                         Cabina de radiodifusión y procesamiento de audio en tiempo real desarrollada
                         en Python: medidores estéreo VU de alta resolución, rack DSP con ecualizador
                         paramétrico y compuerta de ruido, telemetría en vivo y automatización de
-                        locución mediante síntesis de voz (TTS). Persistencia local en SQLite.
+                        locución mediante síntesis de voz (TTS). Persistencia local en SQLite con WAL.
                     </p>
                     <div class="project-tags">
                         <span>Python 3.12</span>
@@ -273,7 +319,7 @@
                         </a>
                         <a href="https://liebeblack.github.io/S.M.A.C_Station/" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                            Web
+                            Web Demo
                         </a>
                     </div>
                 </article>
@@ -281,14 +327,14 @@
                 <!-- Fastboot Web Tool -->
                 <article class="project-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="project-meta">
-                        <span class="project-category">WebUSB &amp; hardware Android</span>
+                        <span class="project-category">WebUSB &amp; Hardware Android</span>
                         <span class="project-year">Agosto 2026</span>
                     </div>
                     <h3 class="project-title">Fastboot Web Tool</h3>
                     <p class="project-desc">
                         Cliente web que interactúa con dispositivos Android en modo Fastboot desde el
                         navegador mediante la WebUSB API: diagnóstico, comandos de arranque y flasheo
-                        de particiones sin instalar el Android SDK.
+                        de particiones sin necesidad de instalar el Android SDK.
                     </p>
                     <div class="project-tags">
                         <span>WebUSB API</span>
@@ -307,13 +353,13 @@
                 <!-- Ky! Movies -->
                 <article class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-meta">
-                        <span class="project-category">Plataforma web &amp; APIs REST</span>
+                        <span class="project-category">Plataforma Web &amp; Edge</span>
                         <span class="project-year">2022 — 2026</span>
                     </div>
                     <h3 class="project-title">Ky! Movies</h3>
                     <p class="project-desc">
                         Catálogo de cine con exploración y filtrado dinámico, optimizado para carga
-                        rápida y servido desde la red de borde de Cloudflare Pages con datos REST.
+                        rápida y servido desde la red de borde de Cloudflare Pages consumiendo APIs RESTful.
                     </p>
                     <div class="project-tags">
                         <span>JavaScript</span>
@@ -328,7 +374,7 @@
                         </a>
                         <a href="https://7t2.pages.dev/" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                            Web
+                            Web Demo
                         </a>
                     </div>
                 </article>
@@ -336,14 +382,14 @@
                 <!-- Wallpaper Engine Ultra v2.0 -->
                 <article class="project-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="project-meta">
-                        <span class="project-category">Gráficos nativos &amp; Direct3D 11</span>
+                        <span class="project-category">Gráficos Nativos &amp; Direct3D 11</span>
                         <span class="project-year">Agosto 2026</span>
                     </div>
                     <h3 class="project-title">Wallpaper Engine Ultra v2.0</h3>
                     <p class="project-desc">
                         Motor de fondos de pantalla animados en C++20: renderizado Direct3D 11 con
-                        gestión directa de buffers de GPU y multithreading, pensado para alta tasa de
-                        cuadros con mínimo impacto en CPU y memoria.
+                        gestión directa de buffers de GPU y multithreading, diseñado para alta tasa de
+                        cuadros con mínimo impacto en CPU y memoria del sistema.
                     </p>
                     <div class="project-tags">
                         <span>C++20</span>
@@ -362,14 +408,14 @@
                 <!-- SDEP_CPP5 -->
                 <article class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-meta">
-                        <span class="project-category">Software de gestión empresarial</span>
+                        <span class="project-category">Gestión Administrativa &amp; Nómina</span>
                         <span class="project-year">2024 — 2026</span>
                     </div>
-                    <h3 class="project-title">SDEP_CPP5 — Gestión de personal y nómina</h3>
+                    <h3 class="project-title">SDEP_CPP5 — Control de Personal y Nómina</h3>
                     <p class="project-desc">
-                        Sistema de escritorio para el control administrativo de personal y el cálculo
-                        automático de nóminas en instituciones educativas, construido con Python,
-                        CustomTkinter y SQLite separados en capas de negocio.
+                        Sistema de escritorio para la administración de personal y cálculo automático
+                        de nóminas en instituciones educativas, construido con Python, CustomTkinter
+                        y SQLite estructurados en una arquitectura multicapa desacoplada.
                     </p>
                     <div class="project-tags">
                         <span>Python</span>
@@ -388,15 +434,15 @@
                 <!-- D.A.S.O / AOSP Debloat -->
                 <article class="project-card project-card--wide" data-aos="fade-up" data-aos-delay="350">
                     <div class="project-meta">
-                        <span class="project-category">Optimización de Android &amp; AOSP</span>
+                        <span class="project-category">Optimización AOSP &amp; Android OS</span>
                         <span class="project-year">2024 — 2026</span>
                     </div>
                     <h3 class="project-title">D.A.S.O — Debloat &amp; SysOptimizer de Android</h3>
                     <p class="project-desc">
-                        Suite que nació como debloater D.A.S.O v1.0 (2024) y maduró hasta AOSP Debloat
+                        Suite que nació como debloater D.A.S.O v1.0 (2024) y evolucionó hasta AOSP Debloat
                         &amp; SysOptimizer v2.7: desinstalación segura de bloatware, control de
-                        servicios y wakelocks, ajuste de CPU y mitigación de telemetría mediante ADB y
-                        scripts Bash.
+                        servicios y wakelocks, calibración de CPU y mitigación de telemetría mediante ADB y
+                        scripts Bash optimizados.
                     </p>
                     <div class="project-tags">
                         <span>Android AOSP</span>
@@ -415,28 +461,28 @@
         </section>
 
         <!-- SERVICIOS -->
-        <section class="section-services" id="servicios">
+        <section class="section-services" id="servicios" aria-labelledby="servicios-title">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Servicios</span>
-                <h2 class="section-title">En qué puedo <span class="gradient-text">ayudarte</span></h2>
+                <span class="section-label">04 // Capacidades</span>
+                <h2 class="section-title" id="servicios-title">En qué puedo <span class="gradient-text">ayudarte</span></h2>
             </div>
 
             <div class="services-grid">
                 <div class="service-item" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="service-title">Software de escritorio a medida</h3>
-                    <p class="service-desc">Sistemas de gestión, nómina y automatización en Python o C++ con datos relacionales y una interfaz cuidada.</p>
+                    <p class="service-desc">Sistemas de gestión, control administrativo y automatización en Python o C++ con datos relacionales y una interfaz moderna y eficiente.</p>
                 </div>
                 <div class="service-item" data-aos="fade-up" data-aos-delay="150">
                     <h3 class="service-title">Audio profesional &amp; DSP</h3>
-                    <p class="service-desc">Consolas, medidores VU, ecualización y telemetría en tiempo real para radio, streaming y producción.</p>
+                    <p class="service-desc">Consolas digitales, medidores estéreo VU, ecualización paramétrica y telemetría en tiempo real para radiodifusión, streaming y audio pro.</p>
                 </div>
                 <div class="service-item" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="service-title">Hardware &amp; Android</h3>
-                    <p class="service-desc">Integración WebUSB, diagnóstico Fastboot/ADB, flasheo de particiones y optimización de Android.</p>
+                    <p class="service-desc">Integración WebUSB en el navegador, herramientas de diagnóstico Fastboot/ADB, flasheo seguro y optimización de rendimiento de AOSP.</p>
                 </div>
                 <div class="service-item" data-aos="fade-up" data-aos-delay="250">
                     <h3 class="service-title">Rendimiento &amp; bajo nivel</h3>
-                    <p class="service-desc">Gráficos Direct3D 11, optimización de CPU y memoria, y arquitectura de sistemas en C++.</p>
+                    <p class="service-desc">Pipelines gráficos en Direct3D 11, optimización de uso de CPU y memoria, concurrencia multihilo y arquitectura modular en C++.</p>
                 </div>
             </div>
 
@@ -448,11 +494,11 @@
             </div>
         </section>
 
-        <!-- STACK -->
-        <section class="section-stack" id="stack">
+        <!-- STACK TÉCNICO -->
+        <section class="section-stack" id="stack" aria-labelledby="stack-title">
             <div class="section-header" data-aos="fade-up">
-                <span class="section-label">Tecnologías y herramientas</span>
-                <h2 class="section-title">Stack técnico <span class="gradient-text">completo</span></h2>
+                <span class="section-label">05 // Arsenal Técnico</span>
+                <h2 class="section-title" id="stack-title">Stack tecnológico <span class="gradient-text">completo</span></h2>
             </div>
 
             <div class="stack-grid">
@@ -503,7 +549,7 @@
                     </div>
                     <ul class="stack-list">
                         <li><span>JavaScript (ES6+)</span><span>Async y streams</span></li>
-                        <li><span>WebUSB API</span><span>Hardware en el navegador</span></li>
+                        <li><span>WebUSB API</span><span>Hardware en browser</span></li>
                         <li><span>Protocolo Fastboot</span><span>Comunicación USB</span></li>
                         <li><span>CSS Grid y Flexbox</span><span>Layout moderno</span></li>
                         <li><span>Cloudflare Pages</span><span>Despliegue en edge</span></li>
@@ -520,8 +566,8 @@
                         </div>
                     </div>
                     <ul class="stack-list">
-                        <li><span>Linux (Debian / Arch / Ubuntu)</span><span>Sistemas base</span></li>
-                        <li><span>Bash y shell scripting</span><span>Automatización de SO</span></li>
+                        <li><span>Linux (Debian / Arch)</span><span>Sistemas base</span></li>
+                        <li><span>Bash y shell scripting</span><span>Automatización SO</span></li>
                         <li><span>Android AOSP</span><span>Debloat y tweaks</span></li>
                         <li><span>ADB &amp; Fastboot</span><span>Puente de control</span></li>
                         <li><span>Systemd y servicios</span><span>Daemons y arranque</span></li>
@@ -542,7 +588,7 @@
                         <li><span>Principios SOLID</span><span>Diseño modular</span></li>
                         <li><span>Concurrencia</span><span>Threads · mutex · async</span></li>
                         <li><span>Git y GitHub</span><span>Control de versiones</span></li>
-                        <li><span>Profiling de CPU / memoria</span><span>Optimización real</span></li>
+                        <li><span>Profiling CPU / RAM</span><span>Optimización real</span></li>
                     </ul>
                 </div>
 
@@ -557,10 +603,10 @@
                     </div>
                     <ul class="stack-list">
                         <li><span>TCP/UDP y sockets</span><span>Transmisión en vivo</span></li>
-                        <li><span>REST y JSON</span><span>Integración de servicios</span></li>
+                        <li><span>REST y JSON</span><span>Integración servicios</span></li>
                         <li><span>Cifrado y hashing</span><span>Protección de datos</span></li>
                         <li><span>Análisis de tráfico</span><span>Diagnóstico de red</span></li>
-                        <li><span>Serialización binaria / JSON</span><span>Transporte eficiente</span></li>
+                        <li><span>Serialización binaria</span><span>Transporte eficiente</span></li>
                     </ul>
                 </div>
             </div>
@@ -568,28 +614,33 @@
 
     </main>
 
-    <!-- FOOTER -->
+    <!-- MINIMAL FOOTER -->
     <footer class="footer-contact">
         <div class="footer-content">
             <div class="footer-links">
-                <a href="https://github.com/LiebeBlack/" target="_blank" rel="noopener" aria-label="Perfil de GitHub">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <a href="https://github.com/LiebeBlack/" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub de LiebeBlack">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
                 </a>
-                <a href="mailto:contact@yoangelgomez.dev" aria-label="Enviar correo electrónico">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <a href="mailto:contact@yoangelgomez.dev" aria-label="Enviar correo electrónico directo a Yoangel Gómez">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                 </a>
             </div>
-            <p class="footer-copyright">Yoangel Gómez · Ingeniero de Software — 2026</p>
+            <div class="footer-status-pill">
+                <span class="footer-status-dot" aria-hidden="true"></span>
+                <span>SYS // ALL SYSTEMS NOMINAL · 2026</span>
+            </div>
+            <p class="footer-copyright">Yoangel Gómez (LiebeBlack) · Ingeniería de Software de Sistemas</p>
         </div>
     </footer>
 
-    <script src="js/common.js?v=13.0"></script>
-    <script src="js/script.js?v=13.0"></script>
+    <!-- SCRIPTS -->
+    <script src="js/common.js?v=15.0"></script>
+    <script src="js/script.js?v=15.0"></script>
 </body>
 
 </html>

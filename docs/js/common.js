@@ -1,18 +1,19 @@
 /**
- * Yoangel Gómez — Shared Behaviors v13
- * Preloader, native reveal engine, nav scroll state + scroll-spy,
- * scroll progress bar and a shared page-prefetch helper.
- *
- * The reveal engine is initialized immediately (scripts load at the
- * end of <body>), so even if a later script throws, page content is
- * never left hidden: [data-aos] is only hidden under `html.js`.
+ * YOANGEL GÓMEZ · LIEBEBLACK — SHARED BEHAVIORS
+ * Preloader, Native IntersectionObserver Reveal, Scroll Spy,
+ * Progress Bar, Prefetching & Dynamic Pointer Depth
+ * Optimized for Modern Chrome 157+, Firefox 167+, Safari 19+
  */
+
+// 1. Mark JS capability immediately
 document.documentElement.classList.add('js');
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-// Shared helper: prefetch a same-site page after first intent.
+// 2. Predictive prefetch helper (Progressive fallback if Speculation Rules API is not active)
 function prefetchPage(href) {
+    if (!href) return;
+    if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) return;
     const selector = `link[rel="prefetch"][href="${href}"]`;
     if (document.querySelector(selector)) return;
     const link = document.createElement('link');
@@ -21,12 +22,12 @@ function prefetchPage(href) {
     document.head.appendChild(link);
 }
 
-// 1. Scroll reveal engine (native IntersectionObserver)
-const revealElements = () => {
+// 3. Scroll Reveal Engine (Pure IntersectionObserver)
+const initReveal = () => {
     const animElements = document.querySelectorAll('[data-aos]');
     if (!animElements.length) return;
 
-    if ('IntersectionObserver' in window && !reduceMotion.matches) {
+    if ('IntersectionObserver' in window && !reduceMotionQuery.matches) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -35,14 +36,14 @@ const revealElements = () => {
                 }
             });
         }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -30px 0px'
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px'
         });
 
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
         animElements.forEach(el => {
             const rect = el.getBoundingClientRect();
-            const viewport = window.innerHeight || document.documentElement.clientHeight;
-            if (rect.top < viewport && rect.bottom > 0) {
+            if (rect.top < viewportHeight && rect.bottom > 0) {
                 el.classList.add('aos-animate');
             } else {
                 observer.observe(el);
@@ -53,90 +54,110 @@ const revealElements = () => {
     }
 };
 
-// Run now (DOM is parsed), again on DOMContentLoaded and on load for safety.
-revealElements();
-document.addEventListener('DOMContentLoaded', revealElements);
-window.addEventListener('load', revealElements);
+// Run reveal right away and on DOM readiness
+initReveal();
+document.addEventListener('DOMContentLoaded', initReveal);
+window.addEventListener('load', initReveal);
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    // 2. Preloader — resolves quickly, never blocks
+    // 4. Preloader Dismissal
     const preloader = document.getElementById('preloader');
     const dismissPreloader = () => {
         if (!preloader || preloader.classList.contains('hidden')) return;
         preloader.classList.add('hidden');
         setTimeout(() => {
             if (preloader.parentNode) preloader.remove();
-        }, 600);
+        }, 500);
     };
 
     if (preloader) {
         if (document.readyState === 'complete') {
-            setTimeout(dismissPreloader, 180);
+            setTimeout(dismissPreloader, 150);
         } else {
-            window.addEventListener('load', () => setTimeout(dismissPreloader, 180));
+            window.addEventListener('load', () => setTimeout(dismissPreloader, 150));
         }
-        // Safety timeout so the preloader never gets stuck
-        setTimeout(dismissPreloader, 1200);
+        // Safety timeout so preloader never blocks the user
+        setTimeout(dismissPreloader, 1000);
     }
 
-    // 3. Nav compact state + scroll progress + scroll-spy (single rAF loop)
+    // 5. Scroll Progress, Floating Nav Scrolled State & Scroll-Spy
     const nav = document.getElementById('nav');
     const progress = document.querySelector('.scroll-progress');
     const spyLinks = nav ? Array.from(nav.querySelectorAll('a[href^="#"]')) : [];
     const spySections = spyLinks
-        .map(a => {
-            const id = a.getAttribute('href').slice(1);
-            return { link: a, section: document.getElementById(id) };
+        .map(link => {
+            const id = link.getAttribute('href').slice(1);
+            return { link, section: document.getElementById(id) };
         })
-        .filter(s => s.section);
+        .filter(item => item.section !== null);
 
-    let ticking = false;
-    const update = () => {
+    let isTicking = false;
+
+    const onScrollUpdate = () => {
         const scrollY = window.scrollY || window.pageYOffset;
         const doc = document.documentElement;
-        const max = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
 
-        if (nav) nav.classList.toggle('scrolled', scrollY > 24);
-
-        if (progress && !reduceMotion.matches) {
-            progress.style.transform = `scaleX(${Math.min(1, scrollY / max)})`;
+        // Nav scrolled state
+        if (nav) {
+            nav.classList.toggle('scrolled', scrollY > 20);
         }
 
+        // Scroll progress bar
+        if (progress && !reduceMotionQuery.matches) {
+            const progressRatio = Math.min(1, Math.max(0, scrollY / maxScroll));
+            progress.style.transform = `scaleX(${progressRatio})`;
+        }
+
+        // Scroll Spy
         if (spySections.length) {
-            const offset = window.innerHeight * 0.4;
-            let current = null;
-            for (const { section } of spySections) {
-                if (section.getBoundingClientRect().top <= offset) current = section;
+            const offset = window.innerHeight * 0.35;
+            let activeItem = null;
+
+            // Check if at the very bottom of page
+            if (scrollY + window.innerHeight >= doc.scrollHeight - 50) {
+                activeItem = spySections[spySections.length - 1];
+            } else {
+                for (const item of spySections) {
+                    const rect = item.section.getBoundingClientRect();
+                    if (rect.top <= offset) {
+                        activeItem = item;
+                    }
+                }
             }
-            spySections.forEach(({ link, section }) => {
-                link.classList.toggle('active', section === current);
+
+            spySections.forEach(item => {
+                item.link.classList.toggle('active', item === activeItem);
             });
         }
 
-        ticking = false;
+        isTicking = false;
     };
 
     window.addEventListener('scroll', () => {
-        if (!ticking) {
-            ticking = true;
-            requestAnimationFrame(update);
+        if (!isTicking) {
+            isTicking = true;
+            requestAnimationFrame(onScrollUpdate);
         }
     }, { passive: true });
-    window.addEventListener('resize', update, { passive: true });
-    update();
 
-    // 4. Lightweight pointer depth for capable devices.
-    if (!reduceMotion.matches && window.matchMedia('(pointer: fine)').matches) {
-        const interactive = document.querySelectorAll('.project-card, .service-item, .profile-card, .stack-col, .channel-card');
+    window.addEventListener('resize', onScrollUpdate, { passive: true });
+    onScrollUpdate();
 
-        interactive.forEach((card) => {
+    // 6. Interactive Card Pointer Glow (Fine Pointers)
+    if (!reduceMotionQuery.matches && window.matchMedia('(pointer: fine)').matches) {
+        const interactiveCards = document.querySelectorAll(
+            '.project-card, .service-item, .profile-card, .stack-col, .channel-card, .contact-form-wrapper'
+        );
+
+        interactiveCards.forEach(card => {
             card.addEventListener('pointermove', (event) => {
                 const rect = card.getBoundingClientRect();
                 card.style.setProperty('--pointer-x', `${event.clientX - rect.left}px`);
                 card.style.setProperty('--pointer-y', `${event.clientY - rect.top}px`);
-            });
+            }, { passive: true });
         });
 
         document.documentElement.classList.add('pointer-depth');
