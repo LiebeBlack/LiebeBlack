@@ -36,10 +36,16 @@
     --tx-2: #64748b;
     --tx-3: #475569;
 
-    /* Perceptual OKLCH Accents (Modern Chrome 157+ & Firefox 167+) */
+    /* Perceptual OKLCH Accents with Solid Fallbacks */
+    --accent: #38bdf8;
     --accent: oklch(0.76 0.14 216);
+    --accent-glow: #7dd3fc;
     --accent-glow: oklch(0.85 0.12 210);
+    --accent-2: #818cf8;
     --accent-2: oklch(0.68 0.18 285);
+    --emerald: #34d399;
+    --emerald: oklch(0.78 0.16 155);
+    --accent-emerald: #34d399;
     --accent-emerald: oklch(0.78 0.16 155);
     --accent-soft: rgba(56, 189, 248, 0.09);
     --accent-soft-2: rgba(129, 140, 248, 0.08);
@@ -256,6 +262,7 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
     display: flex;
     align-items: center;
     gap: 0.95rem;
+    max-width: 100%;
     padding: 0.42rem 0.6rem 0.42rem 0.75rem;
     background: rgba(8, 12, 19, 0.75);
     backdrop-filter: blur(18px) saturate(160%);
@@ -280,6 +287,7 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
     text-decoration: none;
     white-space: nowrap;
     padding-right: 0.15rem;
+    flex-shrink: 0;
 }
 
 .nav-brand__mark {
@@ -311,6 +319,13 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
     margin: 0;
     padding: 0;
     white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nav-contact__links::-webkit-scrollbar {
+    display: none;
 }
 
 .nav-contact__links a {
@@ -325,6 +340,7 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
     padding: 0.45rem 0.8rem;
     border-radius: var(--r-pill);
     white-space: nowrap;
+    flex-shrink: 0;
     transition: color 0.3s var(--ease), background 0.3s var(--ease);
 }
 

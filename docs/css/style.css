@@ -5,7 +5,7 @@
 
 /* ── 1. Scroll Anchoring & Section Shells ─────────────────────────────────── */
 section[id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: clamp(4.5rem, 7vw, 5.5rem);
 }
 
 .section-profile,
@@ -19,15 +19,6 @@ section[id] {
     padding: clamp(4rem, 7vw, 6rem) 5%;
     position: relative;
     z-index: 1;
-}
-
-/* Modern Content Visibility for Instant Below-the-fold Performance */
-.section-experience,
-.section-projects,
-.section-services,
-.section-stack {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 650px;
 }
 
 .section-header {
@@ -1212,8 +1203,12 @@ section[id] {
     .hero-contact::after,
     .hero-avatar-container,
     .hero-avatar-container::before,
+    .atomic-orbit,
+    .orbit-electron,
     .hud-scanline,
-    .hud-target {
-        animation: none;
+    .hud-target,
+    .dsp-bar,
+    .project-card--featured::before {
+        animation: none !important;
     }
 }

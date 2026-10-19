@@ -48,6 +48,14 @@
     top: 6.2rem;
 }
 
+.contact-aside__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
 .contact-aside .title-extreme {
     margin: 0.85rem 0 0;
     font-family: var(--font-title);
@@ -315,8 +323,25 @@ textarea.form-input {
     color: var(--accent);
 }
 
-input[type="file"] {
-    display: none;
+.visually-hidden-file {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+input[type="file"]:focus-visible + .file-label,
+.file-label:focus-within {
+    color: var(--tx-0);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 .form-hint {

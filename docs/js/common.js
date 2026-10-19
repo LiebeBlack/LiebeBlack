@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // Safety timeout so preloader never blocks the user
         setTimeout(dismissPreloader, 1000);
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) dismissPreloader();
+        });
     }
 
     // 5. Scroll Progress, Floating Nav Scrolled State & Scroll-Spy
@@ -146,47 +149,38 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', onScrollUpdate, { passive: true });
     onScrollUpdate();
 
-    // 6. Interactive Card Pointer Depth, 3D Tilt & Magnetic Physics (Fine Pointers)
+    // 6. Interactive Card Pointer Depth & Magnetic Physics (Fine Pointers)
     if (!reduceMotionQuery.matches && window.matchMedia('(pointer: fine)').matches) {
         const interactiveCards = document.querySelectorAll(
             '.project-card, .service-item, .profile-card, .stack-col, .channel-card, .contact-form-wrapper'
         );
 
         interactiveCards.forEach(card => {
-            let isHovered = false;
+            let rect = null;
 
             card.addEventListener('pointerenter', () => {
-                isHovered = true;
+                rect = card.getBoundingClientRect();
             }, { passive: true });
 
             card.addEventListener('pointermove', (event) => {
-                if (!isHovered) return;
-                const rect = card.getBoundingClientRect();
+                if (!rect) rect = card.getBoundingClientRect();
                 const relX = event.clientX - rect.left;
                 const relY = event.clientY - rect.top;
 
                 // Pointer illumination coords
                 card.style.setProperty('--pointer-x', `${relX}px`);
                 card.style.setProperty('--pointer-y', `${relY}px`);
-
-                // Normalized tilt calculation (max ±4.5 degrees)
-                const normX = (relX / rect.width - 0.5) * 2;
-                const normY = (relY / rect.height - 0.5) * 2;
-                card.style.setProperty('--tilt-x', (normX * 4.5).toFixed(2));
-                card.style.setProperty('--tilt-y', (normY * 4.5).toFixed(2));
             }, { passive: true });
 
             card.addEventListener('pointerleave', () => {
-                isHovered = false;
-                card.style.setProperty('--tilt-x', '0');
-                card.style.setProperty('--tilt-y', '0');
+                rect = null;
             }, { passive: true });
         });
 
         document.documentElement.classList.add('pointer-depth');
 
         // Magnetic Action Physics for Key Interactive Elements
-        const magneticElements = document.querySelectorAll('.btn--primary, .btn--ghost, .nav-brand');
+        const magneticElements = document.querySelectorAll('.btn--primary, .btn--ghost, .btn-extreme, .nav-brand');
         magneticElements.forEach(el => {
             el.addEventListener('pointermove', (e) => {
                 const rect = el.getBoundingClientRect();

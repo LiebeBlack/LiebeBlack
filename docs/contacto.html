@@ -12,6 +12,7 @@
     <meta name="author" content="Yoangel Gómez">
     <link rel="canonical" href="https://liebeblack.github.io/LiebeBlack/contacto.html">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="google-site-verification" content="sIcVnR7j8Ux5H0mz0PAwFFTlCZnvJDmp1WnddLR1kUI">
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Yoangel Gómez · LiebeBlack">
@@ -75,8 +76,8 @@
         </style>
     </noscript>
 
-    <link rel="stylesheet" href="css/base.css?v=15.0">
-    <link rel="stylesheet" href="css/contact.css?v=15.0">
+    <link rel="stylesheet" href="css/base.css?v=16.0">
+    <link rel="stylesheet" href="css/contact.css?v=16.0">
 </head>
 
 <body class="contact-page">
@@ -120,7 +121,7 @@
 
                 <!-- Info & Channels Aside -->
                 <aside class="contact-aside" data-aos="fade-up">
-                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap;">
+                    <div class="contact-aside__header">
                         <span class="section-label">06 // Comunicación Directa</span>
                         <span class="telemetry-badge">ENLACE // ACTIVO</span>
                     </div>
@@ -134,7 +135,7 @@
                     <div class="contact-channels">
                         <a href="mailto:contact@yoangelgomez.dev" class="channel-card">
                             <span class="channel-card__icon" aria-hidden="true">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                             </span>
                             <span class="channel-card__body">
                                 <span class="channel-card__label">Correo Directo</span>
@@ -144,7 +145,7 @@
 
                         <a href="https://github.com/LiebeBlack" target="_blank" rel="noopener noreferrer" class="channel-card">
                             <span class="channel-card__icon" aria-hidden="true">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                             </span>
                             <span class="channel-card__body">
                                 <span class="channel-card__label">Código &amp; Repositorios</span>
@@ -180,15 +181,15 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Documentación adjunta</label>
+                            <span class="form-label" id="file-label-text">Documentación adjunta</span>
                             <div class="file-input-wrapper">
                                 <label for="file-upload" class="file-label">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
                                     <span id="file-name">Adjuntar archivo (opcional)</span>
                                 </label>
-                                <input type="file" id="file-upload" name="attachment" accept=".pdf,.doc,.docx,.txt,.zip">
+                                <input type="file" id="file-upload" name="attachment" accept=".pdf,.doc,.docx,.txt,.zip" class="visually-hidden-file" aria-labelledby="file-label-text file-name" aria-describedby="file-hint">
                             </div>
-                            <p class="form-hint">PDF, DOCX, TXT o ZIP · máx. 10 MB · opcional</p>
+                            <p class="form-hint" id="file-hint">PDF, DOCX, TXT o ZIP · máx. 10 MB · opcional</p>
                         </div>
 
                         <div class="form-group">
@@ -213,12 +214,12 @@
         <div class="footer-content">
             <div class="footer-links">
                 <a href="https://github.com/LiebeBlack/" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub de LiebeBlack">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
                 </a>
                 <a href="mailto:contact@yoangelgomez.dev" aria-label="Enviar correo electrónico directo a Yoangel Gómez">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
@@ -233,8 +234,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/common.js?v=15.0"></script>
-    <script src="js/contact.js?v=15.0"></script>
+    <script src="js/common.js?v=16.0"></script>
+    <script src="js/contact.js?v=16.0"></script>
 </body>
 
 </html>
