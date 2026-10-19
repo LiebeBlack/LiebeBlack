@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error(errMsg);
                 }
             } catch (err) {
-                setStatus('No se pudo enviar la consulta. Por favor, verifica tu conexión o escríbeme directamente a contact@yoangelgomez.dev', 'error');
+                setStatus('No se pudo enviar la consulta. Por favor, verifica tu conexión o escríbeme directamente a GomezYoangel@gmail.com', 'error');
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;

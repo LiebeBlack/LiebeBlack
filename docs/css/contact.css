@@ -461,11 +461,3 @@ input[type="file"]:focus-visible + .file-label,
     }
 }
 
-/* ── 5. Reduced Motion ────────────────────────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-    .contact-section::before,
-    .contact-note__dot,
-    .contact-form-wrapper::before {
-        animation: none;
-    }
-}

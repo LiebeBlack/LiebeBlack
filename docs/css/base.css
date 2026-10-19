@@ -390,9 +390,17 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
 .section-label::before {
     content: '';
     width: 1.6rem;
-    height: 1px;
+    height: 1.5px;
     background: var(--grad);
     opacity: 0.9;
+    border-radius: 1px;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.45);
+    animation: quantumLabelPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes quantumLabelPulse {
+    0%   { transform: scaleX(0.85); opacity: 0.5; box-shadow: 0 0 4px rgba(56, 189, 248, 0.25); }
+    100% { transform: scaleX(1.15); opacity: 1; box-shadow: 0 0 10px rgba(56, 189, 248, 0.85); }
 }
 
 .section-title {
@@ -603,13 +611,16 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
 
 /* ── 12. Atomic Visual Primitives & Telemetry ─────────────────────────────── */
 .atomic-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.75;
+    opacity: 0.88;
 }
 
 .telemetry-badge {
@@ -644,28 +655,10 @@ html.js [data-aos][data-aos-delay="350"] { transition-delay: 280ms; }
     50%      { opacity: 1; transform: scale(1.15); }
 }
 
-/* ── 13. Accessibility & Reduced Motion ───────────────────────────────────── */
+/* ── 13. Accessibility & Motion Polish ───────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
-    }
-
-    body::before,
-    .atomic-canvas {
-        display: none !important;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-    }
-
-    html.js [data-aos] {
-        opacity: 1 !important;
-        transform: none !important;
     }
 }
 
