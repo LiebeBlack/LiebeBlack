@@ -10,6 +10,7 @@ section[id] {
 
 .section-profile,
 .section-projects,
+.section-repos,
 .section-experience,
 .section-services,
 .section-stack {
@@ -956,7 +957,186 @@ section[id] {
     transform: translate(2px, -1px);
 }
 
-/* ── 7. Services Section ──────────────────────────────────────────────────── */
+/* ── 7. Repository Archive ───────────────────────────────────────────────── */
+.repos-intro {
+    margin: 1rem 0 0;
+    max-width: 68ch;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--tx-1);
+}
+
+.repos-intro a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.35);
+    transition: border-color 0.3s var(--ease);
+}
+
+.repos-intro a:hover {
+    border-color: var(--accent);
+}
+
+.repo-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-bottom: 1.1rem;
+}
+
+.repo-search {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: min(100%, 360px);
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--line-0);
+    border-radius: var(--r-pill);
+    background: rgba(8, 12, 19, 0.55);
+    transition: border-color 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.repo-search:focus-within {
+    border-color: var(--line-2);
+    background: var(--bg-1);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.08);
+}
+
+.repo-search svg {
+    flex-shrink: 0;
+    color: var(--tx-2);
+}
+
+.repo-search input {
+    width: 100%;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: var(--tx-0);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.repo-search input::placeholder {
+    color: var(--tx-2);
+}
+
+.repo-count {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tx-2);
+    white-space: nowrap;
+}
+
+.repo-empty {
+    margin: 1.2rem 0 0;
+    padding: 1.2rem 1.3rem;
+    border: 1px dashed var(--line-1);
+    border-radius: var(--r-md);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--tx-2);
+    text-align: center;
+}
+
+.repo-entry[hidden] {
+    display: none;
+}
+
+.repo-archive {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.repo-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--line-0);
+    border-radius: var(--r-md);
+    background: rgba(12, 17, 26, 0.55);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s var(--ease), border-color 0.3s var(--ease),
+                background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.repo-entry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background: var(--grad);
+    opacity: 0.55;
+}
+
+.repo-entry:hover {
+    transform: translateY(-3px);
+    border-color: var(--line-2);
+    background: var(--bg-2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.repo-entry__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+.repo-entry__name {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--tx-0);
+    overflow-wrap: anywhere;
+}
+
+.repo-entry__lang {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 0.16rem 0.5rem;
+    border: 1px solid rgba(56, 189, 248, 0.22);
+    border-radius: var(--r-pill);
+    white-space: nowrap;
+}
+
+.repo-entry__desc {
+    font-size: 0.76rem;
+    line-height: 1.5;
+    color: var(--tx-1);
+}
+
+.repo-entry__meta {
+    margin-top: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tx-2);
+}
+
+/* ── 8. Services Section ──────────────────────────────────────────────────── */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1158,6 +1338,10 @@ section[id] {
     .stack-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .repo-archive {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 768px) {
@@ -1224,10 +1408,29 @@ section[id] {
 
     .section-profile,
     .section-projects,
+    .section-repos,
     .section-experience,
     .section-services,
     .section-stack {
         padding: 3.5rem 5%;
+    }
+
+    .repo-archive {
+        grid-template-columns: 1fr;
+    }
+
+    .repo-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.7rem;
+    }
+
+    .repo-search {
+        width: 100%;
+    }
+
+    .repo-count {
+        padding-left: 0.2rem;
     }
 
     .section-header {
